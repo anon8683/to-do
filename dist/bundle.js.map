@@ -1,0 +1,13 @@
+{
+	"version": 3,
+	"file": "bundle.js",
+	"mappings": ";;;;;AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA",
+	"sources": [
+		"webpack://to-do/./src/index.js"
+	],
+	"sourcesContent": [
+		"const hello = \"hi\";\r\nwindow.greetings = \"hellooooo\";\r\nconsole.log(\"k\");\r\nfunction calc() {\r\n\tconsole.log(\"hello\");\r\n}\r\n\r\ncalc();\r\ncalc();\r\n"
+	],
+	"names": [],
+	"sourceRoot": ""
+}

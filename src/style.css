@@ -1,0 +1,38 @@
+:root {
+	--1: #f7f7f7;
+	--2: #eeeeee;
+	--3: #393e46;
+	--4: #929aab;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	display: grid;
+	height: 100vh;
+	grid-template-rows: 1fr 12fr 1fr;
+	background-color: var(--2);
+}
+
+/* header */
+
+/* ------ */
+
+/* main */
+
+main {
+	display: grid;
+	grid-template-columns: 0.9fr 3fr;
+}
+
+button {
+	width: 100px;
+	background-color: var(--4);
+}
+
+/* ---- */

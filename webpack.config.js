@@ -1,6 +1,15 @@
 const path = require("path");
 
 module.exports = {
+	devServer: {
+		static: {
+			directory: path.join(__dirname, "dist"),
+		},
+		historyApiFallback: true,
+		compress: true,
+		port: 8000,
+	},
+	mode: "development",
 	entry: "./src/",
 	output: {
 		filename: "bundle.js",
