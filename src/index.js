@@ -36,6 +36,9 @@ buttons.forEach((btn) => {
 					projects.push(project);
 					projectArray.push(project);
 					addProjectNav(project);
+					if (projects.length < 2) {
+						displayCurrentProject(0);
+					}
 					const projectButton = Array.from(
 						document.querySelectorAll(".projectButton")
 					);
