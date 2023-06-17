@@ -6,6 +6,7 @@ import {
 	getTaskInput,
 } from "./objectCreate";
 import addProjectNav from "./addProject";
+import { addVisibleClass, removeVisibleClass } from "./displayItems";
 
 window.projects = [];
 window.x = undefined;
@@ -20,6 +21,11 @@ const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		switch (btn.id) {
+			case "addProjectButton":
+				// show project inputs
+				addVisibleClass("projectInput");
+
+				break;
 			case "submitProject":
 				{
 					const project = createProject(getProjectInput());
@@ -35,6 +41,8 @@ buttons.forEach((btn) => {
 							console.log(currentProject);
 						});
 					});
+
+					removeVisibleClass("projectInput");
 				}
 				break;
 

@@ -19,19 +19,49 @@ body {
 	background-color: var(--2);
 }
 
-/* header */
+/* ---------------header--------------- */
 
-/* ------ */
+/* ------------------------------------ */
 
-/* main */
+/* ---------------nav--------------- */
+
+#addProjectButton {
+	font-size: 0.7rem;
+	width: fit-content;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 5px;
+	border: 1px solid transparent;
+}
+
+#addProjectButton:hover {
+	cursor: pointer;
+	border: 1px solid var(--3);
+}
+
+#projectInput {
+	display: flex;
+	flex-direction: column;
+}
+
+.projectInput {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+/* ---------------main--------------- */
 
 main {
 	display: grid;
-	grid-template-columns: 0.9fr 3fr;
+	grid-template-columns: minmax(350px, 20vw) 3fr;
+	padding: 10px;
 }
 
 button {
-	width: 100px;
 	background-color: var(--4);
 }
 
