@@ -31,7 +31,7 @@ buttons.forEach((btn) => {
 					);
 					projectButton.forEach((but) => {
 						but.addEventListener("click", () => {
-							currentProject = but.id;
+							currentProject = but.id.slice(-1);
 							console.log(currentProject);
 						});
 					});
@@ -40,7 +40,7 @@ buttons.forEach((btn) => {
 
 			case "submitTask": {
 				const task = createTask(getTaskInput());
-				projects[0].tasks.push(task);
+				projects[currentProject].tasks.push(task);
 				break;
 			}
 			default:
