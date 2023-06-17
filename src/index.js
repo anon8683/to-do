@@ -6,7 +6,11 @@ import {
 	getTaskInput,
 } from "./objectCreate";
 import addProjectNav from "./addProject";
-import { addVisibleClass, removeVisibleClass } from "./displayItems";
+import {
+	addVisibleClass,
+	removeVisibleClass,
+	displayCurrentProject,
+} from "./displayItems";
 
 window.projects = [];
 window.x = undefined;
@@ -23,7 +27,7 @@ buttons.forEach((btn) => {
 		switch (btn.id) {
 			case "addProjectButton":
 				// show project inputs
-				addVisibleClass("projectInput");
+				addVisibleClass("#projectInput");
 
 				break;
 			case "submitProject":
@@ -38,17 +42,23 @@ buttons.forEach((btn) => {
 					projectButton.forEach((but) => {
 						but.addEventListener("click", () => {
 							currentProject = but.id.slice(-1);
+							displayCurrentProject(currentProject);
 							console.log(currentProject);
 						});
 					});
 
-					removeVisibleClass("projectInput");
+					removeVisibleClass("#projectInput");
 				}
+				break;
+			case "cancelSubmitProject":
+				removeVisibleClass("#projectInput");
+
 				break;
 
 			case "submitTask": {
 				const task = createTask(getTaskInput());
 				projects[currentProject].tasks.push(task);
+				projectArray[currentProject].tasks.push(task);
 				break;
 			}
 			default:

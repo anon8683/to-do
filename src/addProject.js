@@ -5,7 +5,8 @@ function addProjectNav(project) {
 	const name = project.name;
 	// const desc = project.desc;
 
-	const newProject = document.createElement("button");
+	const newProject = document.createElement("a");
+	newProject.setAttribute("href", "#");
 	newProject.setAttribute("class", "projectButton");
 	newProject.setAttribute("id", `project_${count}`);
 	newProject.textContent = `${name}`;

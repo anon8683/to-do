@@ -6,19 +6,49 @@
 		<title>To-do</title>
 		<script src="bundle.js" defer></script>
 	</head>
+
 	<body>
 		<header></header>
 		<main>
 			<nav>
-				<div id="projectInput">
+				<div class="join">
+					<h1>Projects</h1>
 					<button id="addProjectButton">Add Project +</button>
-					<input type="text" class="projectInput" id="projectName" />
-					<input type="text" class="projectInput" id="projectDescription" />
-					<button class="projectInput" id="submitProject">Submit</button>
 				</div>
+				<div class="container">
+					<div id="projectInput">
+						<div class="together">
+							<label for="name">Project Name:</label>
+							<input
+								type="text"
+								class="projectInput"
+								id="projectName"
+								name="name"
+							/>
+						</div>
+						<div class="together">
+							<label for="description">Project Decription:</label>
+							<input
+								type="text"
+								class="projectInput"
+								id="projectDescription"
+								name="description"
+							/>
+						</div>
+						<div class="togetherButtons">
+							<button class="projectInput" id="cancelSubmitProject">
+								Cancel
+							</button>
+							<button class="projectInput" id="submitProject">Save</button>
+						</div>
+					</div>
+				</div>
+
 				<!-- in here goes our generated projects -->
 			</nav>
 			<section>
+				<h1 id="currentProject">text content</h1>
+				<h5 id="projectDesc">ballh blah blah</h3>
 				<div>
 					<input type="text" id="taskTitle" />
 					<input type="text" id="taskDescription" />
