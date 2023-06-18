@@ -7,7 +7,7 @@ import {
 	getTaskInput,
 	editProject,
 } from "./objectCreate";
-import addProjectNav from "./addProject";
+import { addProjectNav, getCurrentProject } from "./addProject";
 import {
 	addVisibleClass,
 	removeVisibleClass,
@@ -30,11 +30,6 @@ buttons.forEach((btn) => {
 			case "addProjectButton":
 				// show project inputs
 				addVisibleClass("#projectInput");
-				const save = document.getElementById("submitEditProject");
-				if (save) {
-					break;
-				}
-
 				break;
 			case "submitProject":
 				{
@@ -44,6 +39,7 @@ buttons.forEach((btn) => {
 					console.log(projectArray);
 					addProjectNav(project, projectArray);
 					if (projectArray.length <= 1) {
+						// by default display our first entry
 						displayCurrentProject(projectArray, 0);
 						currentProject = 0;
 					}
@@ -60,12 +56,13 @@ buttons.forEach((btn) => {
 				break;
 			}
 			case "editProject":
-				console.log("edit clicked");
-				console.log(currentProject);
+				// editProject(projectArray[currentProject], currentProject);
 				console.log(projectArray);
-				addVisibleClass("#projectInput");
+				currentProject = getCurrentProject();
 
-				editProject(projectArray[currentProject], currentProject);
+				addVisibleClass("#projectInput");
+				console.log(`edit clicked current project is ${currentProject}`);
+				editProject(projectArray, currentProject); // sends our current item and id to edit
 				break;
 			default:
 		}
