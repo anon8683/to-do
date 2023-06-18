@@ -16,11 +16,11 @@ function removeVisibleClass(item) {
 	});
 }
 
-function displayCurrentProject(id) {
+function displayCurrentProject(projectArray, id) {
 	const title = document.getElementById("currentProject");
 	const desc = document.getElementById("projectDesc");
 
-	title.textContent = projects[id].name;
-	desc.textContent = projects[id].desc;
+	title.textContent = projectArray[id].name;
+	desc.textContent = projectArray[id].desc;
 }
 export { addVisibleClass, removeVisibleClass, displayCurrentProject };

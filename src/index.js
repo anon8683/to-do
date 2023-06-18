@@ -1,9 +1,11 @@
+/* eslint-disable prefer-destructuring */
 import "./style.css";
 import {
 	createProject,
 	createTask,
 	getProjectInput,
 	getTaskInput,
+	editProject,
 } from "./objectCreate";
 import addProjectNav from "./addProject";
 import {
@@ -36,8 +38,9 @@ buttons.forEach((btn) => {
 					projects.push(project);
 					projectArray.push(project);
 					addProjectNav(project);
-					if (projects.length < 2) {
-						displayCurrentProject(0);
+					if (projectArray.length < 2) {
+						displayCurrentProject(projectArray, 0);
+						currentProject = 0;
 					}
 					const projectButton = Array.from(
 						document.querySelectorAll(".projectButton")
@@ -45,7 +48,7 @@ buttons.forEach((btn) => {
 					projectButton.forEach((but) => {
 						but.addEventListener("click", () => {
 							currentProject = but.id.slice(-1);
-							displayCurrentProject(currentProject);
+							displayCurrentProject(projectArray, currentProject);
 							console.log(currentProject);
 						});
 					});
@@ -55,15 +58,21 @@ buttons.forEach((btn) => {
 				break;
 			case "cancelSubmitProject":
 				removeVisibleClass("#projectInput");
-
 				break;
-
 			case "submitTask": {
 				const task = createTask(getTaskInput());
 				projects[currentProject].tasks.push(task);
 				projectArray[currentProject].tasks.push(task);
 				break;
 			}
+			case "editProject":
+				console.log("edit clicked");
+				console.log(currentProject);
+				console.log(projectArray);
+				addVisibleClass("#projectInput");
+
+				editProject(projectArray[currentProject], currentProject);
+				break;
 			default:
 		}
 	});

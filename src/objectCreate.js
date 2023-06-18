@@ -1,3 +1,6 @@
+/* eslint-disable no-param-reassign */
+import { removeVisibleClass } from "./displayItems";
+
 // Create our project object
 function createProject([name, desc]) {
 	return {
@@ -12,6 +15,26 @@ function getProjectInput() {
 	const name = document.getElementById("projectName").value;
 	const desc = document.getElementById("projectDescription").value;
 	return [name, desc];
+}
+
+function editProject(project, id) {
+	const save = document.getElementById("submitProject");
+	save.setAttribute("id", "submitEditProject");
+
+	save.addEventListener("click", () => {
+		const name = getProjectInput()[0];
+		const desc = getProjectInput()[1];
+		project.name = name;
+		project.desc = desc;
+
+		const navContent = document.getElementById(`project_${id}`);
+		const currentName = document.getElementById("currentProject");
+		const currentDesc = document.getElementById("projectDesc");
+		navContent.textContent = name;
+		currentName.textContent = name;
+		currentDesc.textContent = desc;
+		removeVisibleClass("#projectInput");
+	});
 }
 
 // Create our project object
@@ -32,4 +55,10 @@ function getTaskInput() {
 	return [title, desc, date, prio];
 }
 
-export { createProject, createTask, getProjectInput, getTaskInput };
+export {
+	createProject,
+	createTask,
+	getProjectInput,
+	getTaskInput,
+	editProject,
+};
