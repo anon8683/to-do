@@ -18,8 +18,16 @@ function getProjectInput() {
 }
 
 function editProject(project, id) {
+	console.log(project);
 	const save = document.getElementById("submitProject");
-	save.setAttribute("id", "submitEditProject");
+	const nameInput = document.getElementById("projectName");
+	const descInput = document.getElementById("projectDescription");
+	if (save) {
+		save.setAttribute("id", "submitEditProject");
+	}
+	// nameInput.setAttribute("value", `${project.name}`);
+	// descInput.setAttribute("value", `${project.desc}`);
+	console.log(save);
 
 	save.addEventListener("click", () => {
 		const name = getProjectInput()[0];
@@ -34,6 +42,7 @@ function editProject(project, id) {
 		currentName.textContent = name;
 		currentDesc.textContent = desc;
 		removeVisibleClass("#projectInput");
+		save.setAttribute("id", "submitProject");
 	});
 }
 

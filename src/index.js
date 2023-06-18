@@ -30,6 +30,10 @@ buttons.forEach((btn) => {
 			case "addProjectButton":
 				// show project inputs
 				addVisibleClass("#projectInput");
+				const save = document.getElementById("submitEditProject");
+				if (save) {
+					break;
+				}
 
 				break;
 			case "submitProject":
@@ -37,22 +41,12 @@ buttons.forEach((btn) => {
 					const project = createProject(getProjectInput());
 					projects.push(project);
 					projectArray.push(project);
-					addProjectNav(project);
-					if (projectArray.length < 2) {
+					console.log(projectArray);
+					addProjectNav(project, projectArray);
+					if (projectArray.length <= 1) {
 						displayCurrentProject(projectArray, 0);
 						currentProject = 0;
 					}
-					const projectButton = Array.from(
-						document.querySelectorAll(".projectButton")
-					);
-					projectButton.forEach((but) => {
-						but.addEventListener("click", () => {
-							currentProject = but.id.slice(-1);
-							displayCurrentProject(projectArray, currentProject);
-							console.log(currentProject);
-						});
-					});
-
 					removeVisibleClass("#projectInput");
 				}
 				break;
