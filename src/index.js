@@ -6,6 +6,7 @@ import {
 	getProjectInput,
 	getTaskInput,
 	editProject,
+	changeButton,
 } from "./objectCreate";
 import { addProjectNav, getCurrentProject } from "./addProject";
 import {
@@ -19,6 +20,7 @@ window.x = undefined;
 
 const projectArray = [];
 let currentProject;
+let edit = false;
 
 // button rewrite
 
@@ -36,7 +38,6 @@ buttons.forEach((btn) => {
 					const project = createProject(getProjectInput());
 					projects.push(project);
 					projectArray.push(project);
-					console.log(projectArray);
 					addProjectNav(project, projectArray);
 					if (projectArray.length <= 1) {
 						// by default display our first entry
@@ -48,7 +49,12 @@ buttons.forEach((btn) => {
 				break;
 			case "cancelSubmitProject":
 				removeVisibleClass("#projectInput");
+				if (edit === true) {
+					changeButton(edit, true);
+					edit = false;
+				}
 				break;
+
 			case "submitTask": {
 				const task = createTask(getTaskInput());
 				projects[currentProject].tasks.push(task);
@@ -56,13 +62,19 @@ buttons.forEach((btn) => {
 				break;
 			}
 			case "editProject":
-				// editProject(projectArray[currentProject], currentProject);
-				console.log(projectArray);
+				// when edit button is clicked
+				// set get our currently selected project ID
+				// make our input form visible and change the button
 				currentProject = getCurrentProject();
-
 				addVisibleClass("#projectInput");
-				console.log(`edit clicked current project is ${currentProject}`);
-				editProject(projectArray, currentProject); // sends our current item and id to edit
+				edit = true;
+				changeButton(edit);
+				break;
+
+			case "submitEdit":
+				editProject(projectArray, currentProject);
+				edit = false;
+				changeButton(edit);
 				break;
 			default:
 		}

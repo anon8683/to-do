@@ -23,57 +23,29 @@ function changeNavItem(name, id) {
 	navToChange.textContent = `${name}`;
 }
 
-function editProject(projectArray, id) {
-	console.log(projectArray[id], id);
-
-	const buttonToChange = document.getElementById("submitProject");
-	buttonToChange.setAttribute("id", "submitEdit");
-
-	function handleClick() {
-		console.log("edit saved");
-		console.log(getProjectInput(), projectArray[id]);
-
-		buttonToChange.setAttribute("id", "submitProject");
-		removeVisibleClass("#projectInput");
-
-		projectArray[id].name = getProjectInput()[0];
-		projectArray[id].desc = getProjectInput()[1];
-		displayCurrentProject(projectArray, id);
-		changeNavItem(projectArray[id].name, id);
-		console.log(projectArray);
-
-		buttonToChange.removeEventListener("click", handleClick);
+function changeButton(edit, cancel) {
+	if (edit === true && cancel === true) {
+		const buttonToChanges = document.getElementById("submitEdit");
+		buttonToChanges.setAttribute("id", "submitProject");
+		return;
+	}
+	if (edit === true) {
+		const buttonToChange = document.getElementById("submitProject");
+		buttonToChange.setAttribute("id", "submitEdit");
+		return;
 	}
 
-	buttonToChange.addEventListener("click", handleClick);
+	const buttonToChange = document.getElementById("submitEdit");
+	buttonToChange.setAttribute("id", "submitProject");
+}
 
-	// console.log(project);
-	// const save = document.getElementById("submitProject");
-	// const nameInput = document.getElementById("projectName");
-	// const descInput = document.getElementById("projectDescription");
-	// if (save) {
-	// 	save.setAttribute("id", "submitEditProject");
-	// }
-	// // nameInput.setAttribute("value", `${project.name}`);
-	// // descInput.setAttribute("value", `${project.desc}`);
-	// console.log(save);
+function editProject(projectArray, id) {
+	projectArray[id].name = getProjectInput()[0];
+	projectArray[id].desc = getProjectInput()[1];
 
-	// save.addEventListener("click", (edit) => {
-	// 	const name = getProjectInput()[0];
-	// 	const desc = getProjectInput()[1];
-	// 	project.name = name;
-	// 	project.desc = desc;
-
-	// 	const navContent = document.getElementById(`project_${id}`);
-	// 	const currentName = document.getElementById("currentProject");
-	// 	const currentDesc = document.getElementById("projectDesc");
-	// 	navContent.textContent = name;
-	// 	currentName.textContent = name;
-	// 	currentDesc.textContent = desc;
-	// 	removeVisibleClass("#projectInput");
-	// 	save.setAttribute("id", "submitProject");
-	// 	save.removeEventListener("click", edit);
-	// });
+	displayCurrentProject(projectArray, id);
+	changeNavItem(projectArray[id].name, id);
+	removeVisibleClass("#projectInput");
 }
 
 // Create our project object
@@ -100,4 +72,5 @@ export {
 	getProjectInput,
 	getTaskInput,
 	editProject,
+	changeButton,
 };

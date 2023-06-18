@@ -16,6 +16,22 @@ function removeVisibleClass(item) {
 	});
 }
 
+function displayNone(item) {
+	const element = Array.from(document.querySelectorAll(`${item}`));
+
+	element.forEach((dom) => {
+		dom.classList.add("displayNone");
+	});
+}
+
+function removeDisplayNone(item) {
+	const element = Array.from(document.querySelectorAll(`${item}`));
+
+	element.forEach((dom) => {
+		dom.classList.remove("displayNone");
+	});
+}
+
 function displayCurrentProject(projectArray, id) {
 	const title = document.getElementById("currentProject");
 	const desc = document.getElementById("projectDesc");
@@ -23,4 +39,10 @@ function displayCurrentProject(projectArray, id) {
 	title.textContent = projectArray[id].name;
 	desc.textContent = projectArray[id].desc;
 }
-export { addVisibleClass, removeVisibleClass, displayCurrentProject };
+export {
+	addVisibleClass,
+	removeVisibleClass,
+	displayNone,
+	removeDisplayNone,
+	displayCurrentProject,
+};
