@@ -238,6 +238,22 @@ section {
 	visibility: hidden;
 }
 
+#taskContainer {
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.taskCard {
+	font-size: 0.7rem;
+	padding: 10px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	margin: 10px;
+}
+
 .flex {
 	/* border-bottom: 1px solid var(--3); */
 	display: flex;

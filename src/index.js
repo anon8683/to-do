@@ -70,11 +70,9 @@ buttons.forEach((btn) => {
 				const current = projectArray[getCurrentProject()];
 
 				current.tasks.push(task);
-				console.log(current);
 				orderTasksByDate(current);
-				console.log(projectArray);
 				removeVisibleClass("#taskInput");
-				displayTasks(current);
+				displayTasks(current, getCurrentProject());
 				break;
 			}
 			case "editProject":

@@ -44,7 +44,7 @@ function displayCurrentProject(projectArray, id) {
 	add.style.visibility = "visible";
 }
 
-function displayTasks(project) {
+function displayTasks(project, projectIndex) {
 	console.log(project);
 
 	const container = document.getElementById("taskContainer");
@@ -64,10 +64,18 @@ function displayTasks(project) {
 	for (let index = 0; index < array.length; index++) {
 		const element = array[index];
 		console.log(element);
+		const date = element.date.toString().slice(4, 21);
 
 		const newTask = document.createElement("div");
-		newTask.setAttribute(`id`, `task_${index}`);
-		newTask.textContent = element.date;
+		newTask.setAttribute(`id`, `project_${projectIndex}_task_${index}`);
+		newTask.classList.add("taskCard");
+		// newTask.textContent = element.date;
+
+		newTask.innerHTML = `
+			<div class="taskDisplay" id="taskDisplayName">${element.title}</div>
+			<div class="taskDisplay" id="taskDisplayDesc">${element.description}</div>
+			<div class="taskDisplay" id="taskDisplayDate">${date}</div>
+		`;
 
 		taskContainer.append(newTask);
 	}
