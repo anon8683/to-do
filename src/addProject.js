@@ -1,4 +1,4 @@
-import { displayCurrentProject } from "./displayItems";
+import { displayCurrentProject, displayTasks } from "./displayItems";
 
 /* eslint-disable prefer-destructuring */
 let count = 0;
@@ -23,6 +23,7 @@ function addProjectNav(project, projectArray) {
 		const id = newProject.id.slice(-1);
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
+		displayTasks(projectArray[currentProject]);
 	});
 	count += 1;
 }

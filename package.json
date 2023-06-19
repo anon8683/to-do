@@ -73,6 +73,7 @@
     "cookie-signature": "^1.0.6",
     "core-util-is": "^1.0.3",
     "cross-spawn": "^7.0.3",
+    "date-fns": "^2.30.0",
     "debug": "^2.6.9",
     "deep-is": "^0.1.4",
     "default-gateway": "^6.0.3",

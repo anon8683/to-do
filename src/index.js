@@ -13,7 +13,9 @@ import {
 	addVisibleClass,
 	removeVisibleClass,
 	displayCurrentProject,
+	displayTasks,
 } from "./displayItems";
+import { createCard, orderTasksByDate } from "./card";
 
 window.projects = [];
 window.x = undefined;
@@ -65,10 +67,14 @@ buttons.forEach((btn) => {
 			case "submitTask": {
 				console.log(getCurrentProject());
 				const task = createTask(getTaskInput());
-				// projects[currentProject].tasks.push(task);
-				projectArray[getCurrentProject()].tasks.push(task);
+				const current = projectArray[getCurrentProject()];
+
+				current.tasks.push(task);
+				console.log(current);
+				orderTasksByDate(current);
 				console.log(projectArray);
 				removeVisibleClass("#taskInput");
+				displayTasks(current);
 				break;
 			}
 			case "editProject":

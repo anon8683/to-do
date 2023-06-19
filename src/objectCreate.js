@@ -53,7 +53,7 @@ function createTask([title, description, date, priority]) {
 	return {
 		title,
 		description,
-		date,
+		date: new Date(date),
 		priority,
 	};
 }
