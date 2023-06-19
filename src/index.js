@@ -63,9 +63,12 @@ buttons.forEach((btn) => {
 				break;
 
 			case "submitTask": {
+				console.log(getCurrentProject());
 				const task = createTask(getTaskInput());
-				projects[currentProject].tasks.push(task);
-				projectArray[currentProject].tasks.push(task);
+				// projects[currentProject].tasks.push(task);
+				projectArray[getCurrentProject()].tasks.push(task);
+				console.log(projectArray);
+				removeVisibleClass("#taskInput");
 				break;
 			}
 			case "editProject":

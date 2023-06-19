@@ -239,6 +239,7 @@ section {
 }
 
 .flex {
+	/* border-bottom: 1px solid var(--3); */
 	display: flex;
 	align-items: center;
 	gap: 30px;

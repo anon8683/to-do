@@ -48,7 +48,7 @@ function editProject(projectArray, id) {
 	removeVisibleClass("#projectInput");
 }
 
-// Create our project object
+// Create our task object
 function createTask([title, description, date, priority]) {
 	return {
 		title,
@@ -59,11 +59,11 @@ function createTask([title, description, date, priority]) {
 }
 
 function getTaskInput() {
-	const title = document.getElementById("taskTitle").value;
+	const name = document.getElementById("taskName").value;
 	const desc = document.getElementById("taskDescription").value;
 	const date = document.getElementById("taskDate").value;
-	const prio = document.getElementById("taskPrio").value;
-	return [title, desc, date, prio];
+	// const prio = document.getElementById("taskPrio").value;
+	return [name, desc, date];
 }
 
 export {
