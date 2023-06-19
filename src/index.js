@@ -29,6 +29,9 @@ const buttons = Array.from(document.querySelectorAll("button"));
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		switch (btn.id) {
+			case "addTask":
+				addVisibleClass("#taskInput");
+				break;
 			case "addProjectButton":
 				// show project inputs
 				addVisibleClass("#projectInput");
@@ -53,6 +56,10 @@ buttons.forEach((btn) => {
 					changeButton(edit, true);
 					edit = false;
 				}
+				break;
+
+			case "cancelSubmitTask":
+				removeVisibleClass("#taskInput");
 				break;
 
 			case "submitTask": {

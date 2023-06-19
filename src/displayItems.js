@@ -34,12 +34,14 @@ function removeDisplayNone(item) {
 
 function displayCurrentProject(projectArray, id) {
 	const edit = document.getElementById("editProject");
+	const add = document.getElementById("addTask");
 	const title = document.getElementById("currentProject");
 	const desc = document.getElementById("projectDesc");
 
 	title.textContent = projectArray[id].name;
 	desc.textContent = projectArray[id].desc;
 	edit.style.visibility = "visible";
+	add.style.visibility = "visible";
 }
 export {
 	addVisibleClass,

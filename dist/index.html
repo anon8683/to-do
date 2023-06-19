@@ -35,6 +35,7 @@
 								name="description"
 							/>
 						</div>
+						
 						<div class="togetherButtons">
 							<button class="projectInput" id="cancelSubmitProject">
 								Cancel
@@ -44,13 +45,73 @@
 					</div>
 				</div>
 
+				<div class="container">
+					<div id="taskInput">
+						<div class="together">
+							<label for="name">Task Name:</label>
+							<input
+								type="text"
+								class="taskInput"
+								id="taskName"
+								name="name"
+							/>
+						</div>
+						<div class="together">
+							<label for="description">Task Decription:</label>
+							<input
+								type="text"
+								class="taskInput"
+								id="taskDescription"
+								name="description"
+							/>
+						</div>
+						<div class="together">
+							<label for="date">Due date:</label>
+							<input
+								type="datetime-local"
+								class="taskInput"
+								id="taskDate"
+								name="date"
+							/>
+						</div>
+						<div class="together">
+							<div class="radio-inputs">
+								<label class="radio">
+								  <input type="radio" name="radio" checked="">
+								  <span class="name">Low</span>
+								</label>
+								<label class="radio">
+								  <input type="radio" name="radio">
+								  <span class="name">Medium</span>
+								</label>
+									
+								<label class="radio">
+								  <input type="radio" name="radio">
+								  <span class="name">Urgent</span>
+								</label>
+							  </div>
+						</div>
+						
+						<div class="togetherButtons">
+							<button class="taskInput" id="cancelSubmitTask">
+								Cancel
+							</button>
+							<button class="taskInput" id="submitTask">Save</button>
+						</div>
+					</div>
+				</div>
+
 				<!-- in here goes our generated projects -->
 			</nav>
 			<section>
 				<div class="intro">
 					<div class="join">
-						<h1 id="currentProject"></h1>
-						<button id="editProject">Edit project</button>
+						<div class="flex">
+							<h1 id="currentProject"></h1>
+							<button class="plus-button plus-button--small" id="addTask"></button>
+							<!-- <button id="addTask">Add Task +</button> -->
+						</div>
+							<button id="editProject">Edit project</button>
 					</div>
 					<h5 id="projectDesc"></h3>
 				</div>
