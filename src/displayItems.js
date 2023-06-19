@@ -72,14 +72,41 @@ function displayTasks(project, projectIndex) {
 		// newTask.textContent = element.date;
 
 		newTask.innerHTML = `
-			<div class="taskDisplay" id="taskDisplayName">${element.title}</div>
-			<div class="taskDisplay" id="taskDisplayDesc">${element.description}</div>
+			<div class="taskJoin">
+				<div class="taskDisplay" id="taskDisplayName">${element.title}</div>
+				<button id="showMore${index}" onclick="showMore(this.id)"=>+</button>
+				<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
+			</div>
 			<div class="taskDisplay" id="taskDisplayDate">${date}</div>
 		`;
 
 		taskContainer.append(newTask);
 	}
 }
+function showMore(id) {
+	const buttonClicked = document.getElementById(`${id}`);
+	const index = id.slice(-1);
+
+	const element = document.getElementById(`taskDisplayDesc ${index}`);
+	element.style.display = "block";
+	buttonClicked.textContent = "-";
+	buttonClicked.setAttribute("onclick", "showLess(this.id)");
+}
+
+function showLess(id) {
+	const buttonClicked = document.getElementById(`${id}`);
+	const index = id.slice(-1);
+
+	const element = document.getElementById(`taskDisplayDesc ${index}`);
+	element.style.display = "none";
+
+	buttonClicked.textContent = "+";
+	buttonClicked.setAttribute("onclick", "showMore(this.id)");
+}
+
+window.showMore = showMore;
+window.showLess = showLess;
+
 export {
 	addVisibleClass,
 	removeVisibleClass,

@@ -254,6 +254,19 @@ section {
 	margin: 10px;
 }
 
+/* #taskDisplayDesc {
+	display: none;
+} */
+
+.desc {
+	display: none;
+}
+
+.taskJoin {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 .flex {
 	/* border-bottom: 1px solid var(--3); */
 	display: flex;
