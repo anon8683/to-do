@@ -30,7 +30,7 @@ let edit = false;
 const buttons = Array.from(document.querySelectorAll("button"));
 
 buttons.forEach((btn) => {
-	btn.addEventListener("click", () => {
+	btn.addEventListener("click", (e) => {
 		switch (btn.id) {
 			case "addTask":
 				addVisibleClass("#taskInput");
@@ -68,7 +68,10 @@ buttons.forEach((btn) => {
 				break;
 
 			case "submitTask": {
-				console.log(getCurrentProject());
+				if (!validate()) {
+					e.preventDefault();
+					return;
+				}
 				const task = createTask(getTaskInput());
 				const current = projectArray[getCurrentProject()];
 
@@ -99,27 +102,28 @@ buttons.forEach((btn) => {
 	});
 });
 
+function validate() {
+	const name_input = document.getElementById("taskName");
+	const date_input = document.getElementById("taskDate");
+	if (date_input.validity.valid && name_input.validity.valid) {
+		return true;
+	}
+
+	return false;
+}
+
 window.addEventListener("load", () => {
 	if (localStorage.getItem("projects") != null) {
 		window.proj = getStorage();
 		for (let i = 0; i < proj.length; i++) {
 			const element = proj[i];
 			projectArray.push(element);
-			console.log(projectArray);
-			console.log(proj);
 			addProjectNav(element, projectArray);
-			console.log(element.tasks);
+
 			if (element.tasks !== null) {
-				console.log(element, i);
 				displayTasks(element, i);
 			}
 		}
-		// const lastItem = localStorage.getItem("lastProject")
-		// displayCurrentProject(projectArray, getStorage()[1] )
-
-		// console.log(getLastProject());
-		// displayCurrentProject(projectArray, getLastProject());
 		displayCurrentProject(projectArray, getLastProject());
 	}
-	console.log(projectArray);
 });

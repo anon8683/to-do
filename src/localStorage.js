@@ -16,8 +16,6 @@ function getStorage() {
 		(n) => n
 	);
 
-	console.log(savedProjects);
-
 	return savedProjects;
 }
 

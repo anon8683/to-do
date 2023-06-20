@@ -47,13 +47,10 @@ function displayCurrentProject(projectArray, id) {
 }
 
 function displayTasks(project, projectIndex) {
-	console.log(project);
-
 	const container = document.getElementById("taskContainer");
 
 	if (container) {
 		container.remove();
-		console.log("container removed");
 	}
 	const section = document.querySelector("section");
 	const taskContainer = document.createElement("article");
@@ -65,7 +62,7 @@ function displayTasks(project, projectIndex) {
 
 	for (let index = 0; index < array.length; index++) {
 		const element = array[index];
-		console.log(element);
+
 		if (typeof element.date === "string") {
 			element.date = new Date(element.date);
 		}
@@ -75,8 +72,6 @@ function displayTasks(project, projectIndex) {
 		const newTask = document.createElement("div");
 		newTask.setAttribute(`id`, `project_${projectIndex}_task_${index}`);
 		newTask.classList.add("taskCard");
-		// newTask.textContent = element.date;
-		console.log(element.date);
 
 		newTask.innerHTML = `
 		<div class="taskJoin">
