@@ -106,13 +106,19 @@ window.addEventListener("load", () => {
 			const element = proj[i];
 			projectArray.push(element);
 			console.log(projectArray);
+			console.log(proj);
 			addProjectNav(element, projectArray);
-			// displayCurrentProject(projectArray, 0);
+			console.log(element.tasks);
+			if (element.tasks !== null) {
+				console.log(element, i);
+				displayTasks(element, i);
+			}
 		}
 		// const lastItem = localStorage.getItem("lastProject")
 		// displayCurrentProject(projectArray, getStorage()[1] )
 
-		console.log(getLastProject());
+		// console.log(getLastProject());
+		// displayCurrentProject(projectArray, getLastProject());
 		displayCurrentProject(projectArray, getLastProject());
 	}
 	console.log(projectArray);

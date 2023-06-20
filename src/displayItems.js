@@ -66,12 +66,17 @@ function displayTasks(project, projectIndex) {
 	for (let index = 0; index < array.length; index++) {
 		const element = array[index];
 		console.log(element);
+		if (typeof element.date === "string") {
+			element.date = new Date(element.date);
+		}
+
 		const date = element.date.toString().slice(4, 21);
 
 		const newTask = document.createElement("div");
 		newTask.setAttribute(`id`, `project_${projectIndex}_task_${index}`);
 		newTask.classList.add("taskCard");
 		// newTask.textContent = element.date;
+		console.log(element.date);
 
 		newTask.innerHTML = `
 		<div class="taskJoin">
