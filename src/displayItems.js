@@ -119,8 +119,9 @@ function completeTask(id) {
 		`project_${projectIndex}_task_${index}`
 	);
 	cardToChange.style.textDecoration = "line-through";
-
 	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
+
+	// remove from local storage
 }
 
 function unCompleteTask(id) {

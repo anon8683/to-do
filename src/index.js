@@ -16,6 +16,7 @@ import {
 	displayTasks,
 } from "./displayItems";
 import { createCard, orderTasksByDate } from "./card";
+import { adjustStorage, getStorage, getLastProject } from "./localStorage";
 
 window.projects = [];
 window.x = undefined;
@@ -42,7 +43,9 @@ buttons.forEach((btn) => {
 				{
 					const project = createProject(getProjectInput());
 					projects.push(project);
-					projectArray.push(project);
+					projectArray.push(project); // this will always contain total projects, add to localstorage
+					adjustStorage(projectArray);
+					getStorage();
 					addProjectNav(project, projectArray);
 					if (projectArray.length <= 1) {
 						// by default display our first entry
@@ -73,6 +76,7 @@ buttons.forEach((btn) => {
 				orderTasksByDate(current);
 				removeVisibleClass("#taskInput");
 				displayTasks(current, getCurrentProject());
+				adjustStorage(projectArray); // adds task to storage
 				break;
 			}
 			case "editProject":
@@ -93,4 +97,23 @@ buttons.forEach((btn) => {
 			default:
 		}
 	});
+});
+
+window.addEventListener("load", () => {
+	if (localStorage.getItem("projects") != null) {
+		window.proj = getStorage();
+		for (let i = 0; i < proj.length; i++) {
+			const element = proj[i];
+			projectArray.push(element);
+			console.log(projectArray);
+			addProjectNav(element, projectArray);
+			// displayCurrentProject(projectArray, 0);
+		}
+		// const lastItem = localStorage.getItem("lastProject")
+		// displayCurrentProject(projectArray, getStorage()[1] )
+
+		console.log(getLastProject());
+		displayCurrentProject(projectArray, getLastProject());
+	}
+	console.log(projectArray);
 });

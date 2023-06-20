@@ -1,4 +1,5 @@
 import { displayCurrentProject, displayTasks } from "./displayItems";
+import { adjustStorage, setLastProject } from "./localStorage";
 
 /* eslint-disable prefer-destructuring */
 let count = 0;
@@ -23,7 +24,8 @@ function addProjectNav(project, projectArray) {
 		const id = newProject.id.slice(-1);
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
-		displayTasks(projectArray[currentProject]);
+		displayTasks(projectArray[currentProject], currentProject);
+		setLastProject();
 	});
 	count += 1;
 }
