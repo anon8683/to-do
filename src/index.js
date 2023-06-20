@@ -25,7 +25,6 @@ import {
 
 window.projects = [];
 window.x = undefined;
-setLastProject(0);
 
 const projectArray = [];
 let currentProject;

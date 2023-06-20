@@ -25,9 +25,11 @@ function addProjectNav(project, projectArray) {
 	// projectNav.innerHTML = `
 	// <a href="#" class="projectButton" id="project_${count}>${name}</a>
 	// `;
+	const id = newProject.id.slice(-1);
+	setLastProject(id);
 
 	newProject.addEventListener("click", () => {
-		const id = newProject.id.slice(-1);
+		// const id = newProject.id.slice(-1);
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
 		displayTasks(projectArray[currentProject], currentProject);
