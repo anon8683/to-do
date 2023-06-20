@@ -1,3 +1,5 @@
+import { getCurrentProject } from "./addProject";
+
 // Adds visible class to our DOM element
 function addVisibleClass(item) {
 	const element = Array.from(document.querySelectorAll(`${item}`));
@@ -72,12 +74,17 @@ function displayTasks(project, projectIndex) {
 		// newTask.textContent = element.date;
 
 		newTask.innerHTML = `
-			<div class="taskJoin">
+		<div class="taskJoin">
+			<div class="taskNameAndButton">
+				<button id="showMore${index}" class="showButton" onclick="showMore(this.id)">+</button>
 				<div class="taskDisplay" id="taskDisplayName">${element.title}</div>
-				<button id="showMore${index}" onclick="showMore(this.id)"=>+</button>
-				<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
 			</div>
-			<div class="taskDisplay" id="taskDisplayDate">${date}</div>
+			<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
+		</div>
+		<div class="taskComplete">
+				<div class="taskDisplay" id="taskDisplayDate">${date}</div>
+				<input type="checkbox" name="complete" id="complete${index}" onclick="completeTask(this.id)">
+		</div>
 		`;
 
 		taskContainer.append(newTask);
@@ -104,6 +111,32 @@ function showLess(id) {
 	buttonClicked.setAttribute("onclick", "showMore(this.id)");
 }
 
+function completeTask(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+	const checkbox = document.getElementById(`${id}`);
+	const cardToChange = document.getElementById(
+		`project_${projectIndex}_task_${index}`
+	);
+	cardToChange.style.textDecoration = "line-through";
+
+	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
+}
+
+function unCompleteTask(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+	const checkbox = document.getElementById(`${id}`);
+	const cardToChange = document.getElementById(
+		`project_${projectIndex}_task_${index}`
+	);
+	cardToChange.style.textDecoration = "none";
+
+	checkbox.setAttribute("onclick", "completeTask(this.id)");
+}
+
+window.unCompleteTask = unCompleteTask;
+window.completeTask = completeTask;
 window.showMore = showMore;
 window.showLess = showLess;
 
