@@ -129,7 +129,10 @@ window.addEventListener("load", () => {
 				displayTasks(element, i);
 			}
 		}
-		console.log(projectArray);
+
+		if (getLastProject() === null) {
+			setLastProject(0);
+		}
 		displayCurrentProject(projectArray, getLastProject());
 		const itemToClick = document.getElementById(`project_${getLastProject()}`);
 		itemToClick.click();

@@ -26,7 +26,7 @@ function addProjectNav(project, projectArray) {
 	// <a href="#" class="projectButton" id="project_${count}>${name}</a>
 	// `;
 	const id = newProject.id.slice(-1);
-	setLastProject(id);
+	// setLastProject(id);
 
 	newProject.addEventListener("click", () => {
 		// const id = newProject.id.slice(-1);
@@ -34,7 +34,6 @@ function addProjectNav(project, projectArray) {
 		displayCurrentProject(projectArray, id);
 		displayTasks(projectArray[currentProject], currentProject);
 		setLastProject(id);
-		console.log(id);
 	});
 	count += 1;
 }

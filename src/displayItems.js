@@ -92,8 +92,13 @@ function displayTasks(project, projectIndex) {
 		taskContainer.append(newTask);
 
 		if (element.completed === true) {
-			const completeBox = document.getElementById(`complete${index}`);
-			completeBox.click();
+			// const completeBox = document.getElementById(`complete${index}`);
+			// console.log(completeBox);
+			// completeBox.click();
+
+			completeTask(`complete${index}`);
+			const checkbox = document.getElementById(`complete${index}`);
+			checkbox.setAttribute("checked", "");
 		}
 	}
 }
@@ -145,6 +150,7 @@ function unCompleteTask(id) {
 	checkbox.setAttribute("onclick", "completeTask(this.id)");
 
 	projectArray[projectIndex].tasks[index].completed = false;
+	adjustStorage(projectArray);
 }
 
 window.unCompleteTask = unCompleteTask;
