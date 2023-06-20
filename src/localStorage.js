@@ -7,8 +7,8 @@ function adjustStorage(projectArray) {
 	// localStorage.setItem("lastProject", JSON.stringify(getCurrentProject()));
 }
 
-function setLastProject() {
-	localStorage.setItem("lastProject", JSON.stringify(getCurrentProject()));
+function setLastProject(id) {
+	localStorage.setItem("lastProject", JSON.stringify(id));
 }
 
 function getStorage() {

@@ -121,6 +121,8 @@ function completeTask(id) {
 	cardToChange.style.textDecoration = "line-through";
 	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
 
+	projectArray[projectIndex].tasks[index].completed = true;
+
 	// remove from local storage
 }
 
@@ -132,8 +134,9 @@ function unCompleteTask(id) {
 		`project_${projectIndex}_task_${index}`
 	);
 	cardToChange.style.textDecoration = "none";
-
 	checkbox.setAttribute("onclick", "completeTask(this.id)");
+
+	projectArray[projectIndex].tasks[index].completed = false;
 }
 
 window.unCompleteTask = unCompleteTask;

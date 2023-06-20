@@ -16,10 +16,16 @@ import {
 	displayTasks,
 } from "./displayItems";
 import { createCard, orderTasksByDate } from "./card";
-import { adjustStorage, getStorage, getLastProject } from "./localStorage";
+import {
+	adjustStorage,
+	getStorage,
+	getLastProject,
+	setLastProject,
+} from "./localStorage";
 
 window.projects = [];
 window.x = undefined;
+setLastProject(0);
 
 const projectArray = [];
 let currentProject;
@@ -102,15 +108,16 @@ buttons.forEach((btn) => {
 });
 
 function validate() {
-	const name_input = document.getElementById("taskName");
-	const date_input = document.getElementById("taskDate");
-	if (date_input.validity.valid && name_input.validity.valid) {
+	const nameInput = document.getElementById("taskName");
+	const dateInput = document.getElementById("taskDate");
+	if (dateInput.validity.valid && nameInput.validity.valid) {
 		return true;
 	}
 
 	return false;
 }
 
+// When page is loaded, get storage and displ
 window.addEventListener("load", () => {
 	if (localStorage.getItem("projects") != null) {
 		window.proj = getStorage();
@@ -123,6 +130,7 @@ window.addEventListener("load", () => {
 				displayTasks(element, i);
 			}
 		}
+		console.log(projectArray);
 		displayCurrentProject(projectArray, getLastProject());
 		const itemToClick = document.getElementById(`project_${getLastProject()}`);
 		itemToClick.click();

@@ -31,7 +31,8 @@ function addProjectNav(project, projectArray) {
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
 		displayTasks(projectArray[currentProject], currentProject);
-		setLastProject();
+		setLastProject(id);
+		console.log(id);
 	});
 	count += 1;
 }
