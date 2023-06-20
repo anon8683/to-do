@@ -72,9 +72,8 @@ buttons.forEach((btn) => {
 					e.preventDefault();
 					return;
 				}
-				const task = createTask(getTaskInput());
-				const current = projectArray[getCurrentProject()];
-
+				const task = createTask(getTaskInput()); // gives a task object from our inputs
+				const current = projectArray[getCurrentProject()]; //
 				current.tasks.push(task);
 				orderTasksByDate(current);
 				removeVisibleClass("#taskInput");
@@ -125,5 +124,7 @@ window.addEventListener("load", () => {
 			}
 		}
 		displayCurrentProject(projectArray, getLastProject());
+		const itemToClick = document.getElementById(`project_${getLastProject()}`);
+		itemToClick.click();
 	}
 });

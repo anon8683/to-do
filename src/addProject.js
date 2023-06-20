@@ -20,6 +20,12 @@ function addProjectNav(project, projectArray) {
 	newProject.textContent = `${name}`;
 	nav.append(newProject);
 
+	// const projectNav = document.getElementById("projectNav");
+
+	// projectNav.innerHTML = `
+	// <a href="#" class="projectButton" id="project_${count}>${name}</a>
+	// `;
+
 	newProject.addEventListener("click", () => {
 		const id = newProject.id.slice(-1);
 		currentProject = id;
