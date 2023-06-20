@@ -1,4 +1,6 @@
+import { el } from "date-fns/locale";
 import { getCurrentProject } from "./addProject";
+import { adjustStorage } from "./localStorage";
 
 // Adds visible class to our DOM element
 function addVisibleClass(item) {
@@ -88,6 +90,11 @@ function displayTasks(project, projectIndex) {
 		`;
 
 		taskContainer.append(newTask);
+
+		if (element.completed === true) {
+			const completeBox = document.getElementById(`complete${index}`);
+			completeBox.click();
+		}
 	}
 }
 function showMore(id) {
@@ -122,6 +129,7 @@ function completeTask(id) {
 	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
 
 	projectArray[projectIndex].tasks[index].completed = true;
+	adjustStorage(projectArray);
 
 	// remove from local storage
 }

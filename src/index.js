@@ -26,7 +26,7 @@ import {
 window.projects = [];
 window.x = undefined;
 
-const projectArray = [];
+window.projectArray = [];
 let currentProject;
 let edit = false;
 
