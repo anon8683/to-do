@@ -69,7 +69,7 @@ buttons.forEach((btn) => {
 
 			case "submitTask": {
 				if (!validate()) {
-					e.preventDefault();
+					// e.preventDefault();
 					return;
 				}
 				const task = createTask(getTaskInput()); // gives a task object from our inputs
