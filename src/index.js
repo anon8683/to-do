@@ -35,13 +35,21 @@ let edit = false;
 
 const buttons = Array.from(document.querySelectorAll("button"));
 
-function validate() {
+function validateTask() {
 	const nameInput = document.getElementById("taskName");
 	const dateInput = document.getElementById("taskDate");
 	if (dateInput.validity.valid && nameInput.validity.valid) {
 		return true;
 	}
 
+	return false;
+}
+
+function validateProject() {
+	const nameInput = document.getElementById("projectName");
+	if (nameInput.validity.valid) {
+		return true;
+	}
 	return false;
 }
 
@@ -57,6 +65,10 @@ buttons.forEach((btn) => {
 				break;
 			case "submitProject":
 				{
+					if (!validateProject()) {
+						// e.preventDefault();
+						return;
+					}
 					const project = createProject(getProjectInput());
 					projects.push(project);
 					projectArray.push(project); // this will always contain total projects, add to localstorage
@@ -78,13 +90,11 @@ buttons.forEach((btn) => {
 					edit = false;
 				}
 				break;
-
 			case "cancelSubmitTask":
 				removeVisibleClass("#taskInput");
 				break;
-
 			case "submitTask": {
-				if (!validate()) {
+				if (!validateTask()) {
 					// e.preventDefault();
 					return;
 				}
@@ -111,6 +121,7 @@ buttons.forEach((btn) => {
 				editProject(projectArray, currentProject);
 				edit = false;
 				changeButton(edit);
+				adjustStorage(projectArray);
 				break;
 			default:
 		}
@@ -119,16 +130,15 @@ buttons.forEach((btn) => {
 
 // When page is loaded, get storage and displ
 window.addEventListener("load", () => {
-	if (localStorage.getItem("projects") != null) {
+	if (
+		localStorage.getItem("projects") !== null &&
+		localStorage.getItem("projects") !== "[]"
+	) {
 		window.proj = getStorage();
 		for (let i = 0; i < proj.length; i += 1) {
 			const element = proj[i];
 			projectArray.push(element);
 			addProjectNav(element, projectArray);
-
-			// if (element.tasks !== null) {
-			// 	// displayTasks(element, i);
-			// }
 		}
 
 		if (getLastProject() === null) {

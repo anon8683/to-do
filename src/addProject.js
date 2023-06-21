@@ -35,8 +35,6 @@ function addProjectNav(project, projectArray) {
 	// setLastProject(id);
 
 	linkToTrack.addEventListener("click", () => {
-		// const id = newProject.id.slice(-1);
-		console.log("nav clicked");
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
 		displayTasks(projectArray[currentProject], currentProject);

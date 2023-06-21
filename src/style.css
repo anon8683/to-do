@@ -212,7 +212,9 @@ button.taskInput {
 }
 
 #submitTask:hover,
-#cancelSubmitTask:hover {
+#cancelSubmitTask:hover,
+#submitProject:hover,
+#cancelSubmitProject:hover {
 	border: 1px solid black;
 	scale: 1.05;
 	transition: 0.3s;

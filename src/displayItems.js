@@ -174,20 +174,21 @@ function deleteTask(id) {
 }
 
 function deleteProject(id) {
-	console.log(id);
 	const index = id.slice(-1);
 	const navToDelete = document.getElementById(`project_${index}`);
 	navToDelete.remove();
 
 	projectArray.splice(index, 1);
-	console.log(projectArray);
 	adjustStorage(projectArray);
 
 	const itemToClick = document.getElementById(`link_project_${index - 1}`);
 	if (itemToClick !== null) {
-		console.log(itemToClick);
 		itemToClick.click();
+		return;
 	}
+
+	// eslint-disable-next-line no-restricted-globals
+	location.reload();
 }
 
 window.deleteProject = deleteProject;

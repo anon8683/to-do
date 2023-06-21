@@ -15,6 +15,7 @@
 					<h2>Projects</h2>
 					<button id="addProjectButton">Add Project +</button>
 				</div>
+				<form id="myForm" onsubmit="return false">
 				<div class="container">
 					<div id="projectInput">
 						<div class="together">
@@ -24,6 +25,7 @@
 								class="projectInput"
 								id="projectName"
 								name="name"
+								required
 							/>
 						</div>
 						<div class="together">
@@ -44,6 +46,7 @@
 						</div>
 					</div>
 				</div>
+			</form>
 			<form id="myForm" onsubmit="return false">
 				<div class="container">
 					<div id="taskInput">
@@ -57,15 +60,7 @@
 								required
 							/>
 						</div>
-						<!-- <div class="together">
-							<label for="description">Task Decription:</label>
-							<input
-								type="text"
-								class="taskInput"
-								id="taskDescription"
-								name="description"
-							/>
-						</div> -->
+			
 						<div class="together">
 							<label for="description">Task Decription:</label>
 							<textarea name="description" class="taskInput" id="taskDescription" cols="30" rows="5"></textarea>
@@ -80,6 +75,7 @@
 								required
 							/>
 						</div>
+
 						<div class="together">
 							<div class="radio-inputs">
 								<label class="radio">
@@ -115,7 +111,6 @@
 						<div class="flex">
 							<h1 id="currentProject"></h1>
 							<button class="plus-button plus-button--small" id="addTask"></button>
-							<!-- <button id="addTask">Add Task +</button> -->
 						</div>
 							<button id="editProject">Edit project</button>
 					</div>
