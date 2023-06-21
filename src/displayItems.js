@@ -82,7 +82,7 @@ function displayTasks(project, projectIndex) {
 				<div class="taskDisplay name" id="taskDisplayName">${element.title}</div>
 			</div>
 			<div class="taskNameAndButton">
-				<button class="taskDisplay delete" id="deleteTask${index}">Delete</button>
+				<button class="taskDisplay delete" id="deleteTask${index}" onclick="deleteTask(this.id)">Delete</button>
 				<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
 			</div>
 		</div>
@@ -161,6 +161,20 @@ function unCompleteTask(id) {
 	adjustStorage(projectArray);
 }
 
+function deleteTask(id) {
+	console.log(id);
+	const projectIndex = getCurrentProject();
+	const index = id.slice(-1);
+	const cardToDelete = document.getElementById(
+		`project_${projectIndex}_task_${index}`
+	);
+	cardToDelete.remove();
+
+	projectArray[projectIndex].tasks.splice(index, 1);
+	adjustStorage(projectArray);
+}
+
+window.deleteTask = deleteTask;
 window.unCompleteTask = unCompleteTask;
 window.completeTask = completeTask;
 window.showMore = showMore;
