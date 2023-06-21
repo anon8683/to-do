@@ -79,12 +79,16 @@ function displayTasks(project, projectIndex) {
 		<div class="taskJoin">
 			<div class="taskNameAndButton">
 				<button id="showMore${index}" class="showButton" onclick="showMore(this.id)">+</button>
-				<div class="taskDisplay" id="taskDisplayName">${element.title}</div>
+				<div class="taskDisplay name" id="taskDisplayName">${element.title}</div>
 			</div>
-			<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
+			<div class="taskNameAndButton">
+				<button class="taskDisplay delete" id="deleteTask${index}">Delete</button>
+				<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
+			</div>
 		</div>
 		<div class="taskComplete">
-				<div class="taskDisplay" id="taskDisplayDate">${date}</div>
+				<div class="taskDisplay ${element.priority}" id="taskDisplayPriority${index}">${element.priority}</div>
+				<div class="taskDisplay date" id="taskDisplayDate">${date}</div>
 				<input type="checkbox" name="complete" id="complete${index}" onclick="completeTask(this.id)">
 		</div>
 		`;
@@ -107,6 +111,8 @@ function showMore(id) {
 	const index = id.slice(-1);
 
 	const element = document.getElementById(`taskDisplayDesc ${index}`);
+	const deleteButton = document.getElementById(`deleteTask${index}`);
+	deleteButton.style.display = "block";
 	element.style.display = "block";
 	buttonClicked.textContent = "-";
 	buttonClicked.setAttribute("onclick", "showLess(this.id)");
@@ -117,6 +123,8 @@ function showLess(id) {
 	const index = id.slice(-1);
 
 	const element = document.getElementById(`taskDisplayDesc ${index}`);
+	const deleteButton = document.getElementById(`deleteTask${index}`);
+	deleteButton.style.display = "none";
 	element.style.display = "none";
 
 	buttonClicked.textContent = "+";

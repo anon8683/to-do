@@ -62,8 +62,16 @@ function getTaskInput() {
 	const name = document.getElementById("taskName").value;
 	const desc = document.getElementById("taskDescription").value;
 	const date = document.getElementById("taskDate").value;
-	// const prio = document.getElementById("taskPrio").value;
-	return [name, desc, date];
+	let priority = "Low";
+	const radio = Array.from(document.querySelectorAll('input[name="radio"]'));
+
+	radio.forEach((box) => {
+		if (box.checked) {
+			priority = box.id;
+		}
+	}); // checks which radio is checked and returns value
+
+	return [name, desc, date, priority];
 }
 
 export {

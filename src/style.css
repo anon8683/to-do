@@ -257,10 +257,58 @@ section {
 	margin: 10px;
 }
 
+.delete {
+	display: none;
+	font-size: 0.6rem;
+	font-weight: 600;
+	border: 1px solid black;
+	color: rgb(0, 0, 0);
+	padding: 2px;
+	border-radius: 3px;
+	background-color: rgb(233, 100, 100);
+}
+
+.delete:hover {
+	background-color: rgb(228, 191, 122);
+	scale: 1.025;
+	border: 1px solid black;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
 .desc {
 	display: none;
-	margin-left: 21px;
 	max-width: 50ch;
+	padding: 10px;
+	font-size: 0.6rem;
+}
+
+.name {
+	font-weight: bold;
+}
+
+.Low,
+.Medium,
+.Urgent {
+	display: flex;
+	justify-content: center;
+	min-width: 43px;
+	font-size: 0.6rem;
+	padding: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+}
+
+.Low {
+	background-color: rgba(152, 238, 152, 0.694);
+}
+
+.Medium {
+	background-color: rgba(243, 203, 131, 0.731);
+}
+
+.Urgent {
+	background-color: rgb(254, 117, 117);
 }
 
 .showButton {
