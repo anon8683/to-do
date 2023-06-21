@@ -134,8 +134,12 @@ window.addEventListener("load", () => {
 		if (getLastProject() === null) {
 			setLastProject(0);
 		}
+
+		// display out last viewed project and click the nav to generate the tasks
 		displayCurrentProject(projectArray, getLastProject());
-		const itemToClick = document.getElementById(`project_${getLastProject()}`);
+		const itemToClick = document.getElementById(
+			`link_project_${getLastProject()}`
+		);
 		itemToClick.click();
 	}
 });

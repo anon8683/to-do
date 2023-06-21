@@ -14,12 +14,17 @@ function addProjectNav(project, projectArray) {
 	// const projects = projectArray;
 	// console.log(projects);
 
-	const newProject = document.createElement("a");
-	newProject.setAttribute("href", "#");
+	const newProject = document.createElement("div");
 	newProject.setAttribute("class", "projectButton");
 	newProject.setAttribute("id", `project_${count}`);
-	newProject.textContent = `${name}`;
+
+	newProject.innerHTML = `
+	<a href="#" class="projectButtonx" id="link_project_${count}">${name}</a>
+	<button class="deleteButton" id="deleteButton${count}" onclick="deleteProject(this.id)" return false;>Delete</button>
+	`;
 	nav.append(newProject);
+
+	const linkToTrack = document.getElementById(`link_project_${count}`);
 
 	// const projectNav = document.getElementById("projectNav");
 
@@ -29,8 +34,9 @@ function addProjectNav(project, projectArray) {
 	const id = newProject.id.slice(-1);
 	// setLastProject(id);
 
-	newProject.addEventListener("click", () => {
+	linkToTrack.addEventListener("click", () => {
 		// const id = newProject.id.slice(-1);
+		console.log("nav clicked");
 		currentProject = id;
 		displayCurrentProject(projectArray, id);
 		displayTasks(projectArray[currentProject], currentProject);
