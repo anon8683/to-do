@@ -126,9 +126,9 @@ window.addEventListener("load", () => {
 			projectArray.push(element);
 			addProjectNav(element, projectArray);
 
-			if (element.tasks !== null) {
-				displayTasks(element, i);
-			}
+			// if (element.tasks !== null) {
+			// 	// displayTasks(element, i);
+			// }
 		}
 
 		if (getLastProject() === null) {
