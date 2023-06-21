@@ -1,4 +1,5 @@
-import { el } from "date-fns/locale";
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-cycle
 import { getCurrentProject } from "./addProject";
 import { adjustStorage } from "./localStorage";
 
@@ -47,6 +48,35 @@ function displayCurrentProject(projectArray, id) {
 	edit.style.visibility = "visible";
 	add.style.visibility = "visible";
 }
+function completeTask(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+	const checkbox = document.getElementById(`${id}`);
+	const cardToChange = document.getElementById(
+		`project_${projectIndex}_task_${index}`
+	);
+	cardToChange.style.textDecoration = "line-through";
+	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
+
+	projectArray[projectIndex].tasks[index].completed = true;
+	adjustStorage(projectArray);
+
+	// remove from local storage
+}
+
+function unCompleteTask(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+	const checkbox = document.getElementById(`${id}`);
+	const cardToChange = document.getElementById(
+		`project_${projectIndex}_task_${index}`
+	);
+	cardToChange.style.textDecoration = "none";
+	checkbox.setAttribute("onclick", "completeTask(this.id)");
+
+	projectArray[projectIndex].tasks[index].completed = false;
+	adjustStorage(projectArray);
+}
 
 function displayTasks(project, projectIndex) {
 	const container = document.getElementById("taskContainer");
@@ -62,7 +92,7 @@ function displayTasks(project, projectIndex) {
 
 	const array = project.tasks;
 
-	for (let index = 0; index < array.length; index++) {
+	for (let index = 0; index < array.length; index += 1) {
 		const element = array[index];
 
 		if (typeof element.date === "string") {
@@ -131,38 +161,7 @@ function showLess(id) {
 	buttonClicked.setAttribute("onclick", "showMore(this.id)");
 }
 
-function completeTask(id) {
-	const index = id.slice(-1);
-	const projectIndex = getCurrentProject();
-	const checkbox = document.getElementById(`${id}`);
-	const cardToChange = document.getElementById(
-		`project_${projectIndex}_task_${index}`
-	);
-	cardToChange.style.textDecoration = "line-through";
-	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
-
-	projectArray[projectIndex].tasks[index].completed = true;
-	adjustStorage(projectArray);
-
-	// remove from local storage
-}
-
-function unCompleteTask(id) {
-	const index = id.slice(-1);
-	const projectIndex = getCurrentProject();
-	const checkbox = document.getElementById(`${id}`);
-	const cardToChange = document.getElementById(
-		`project_${projectIndex}_task_${index}`
-	);
-	cardToChange.style.textDecoration = "none";
-	checkbox.setAttribute("onclick", "completeTask(this.id)");
-
-	projectArray[projectIndex].tasks[index].completed = false;
-	adjustStorage(projectArray);
-}
-
 function deleteTask(id) {
-	console.log(id);
 	const projectIndex = getCurrentProject();
 	const index = id.slice(-1);
 	const cardToDelete = document.getElementById(

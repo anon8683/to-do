@@ -1,5 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { displayCurrentProject, displayTasks } from "./displayItems";
-import { adjustStorage, setLastProject } from "./localStorage";
+import { setLastProject } from "./localStorage";
 
 /* eslint-disable prefer-destructuring */
 let count = 0;

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 import "./style.css";
 import {
@@ -15,7 +16,7 @@ import {
 	displayCurrentProject,
 	displayTasks,
 } from "./displayItems";
-import { createCard, orderTasksByDate } from "./card";
+import { orderTasksByDate } from "./card";
 import {
 	adjustStorage,
 	getStorage,
@@ -34,8 +35,18 @@ let edit = false;
 
 const buttons = Array.from(document.querySelectorAll("button"));
 
+function validate() {
+	const nameInput = document.getElementById("taskName");
+	const dateInput = document.getElementById("taskDate");
+	if (dateInput.validity.valid && nameInput.validity.valid) {
+		return true;
+	}
+
+	return false;
+}
+
 buttons.forEach((btn) => {
-	btn.addEventListener("click", (e) => {
+	btn.addEventListener("click", () => {
 		switch (btn.id) {
 			case "addTask":
 				addVisibleClass("#taskInput");
@@ -106,21 +117,11 @@ buttons.forEach((btn) => {
 	});
 });
 
-function validate() {
-	const nameInput = document.getElementById("taskName");
-	const dateInput = document.getElementById("taskDate");
-	if (dateInput.validity.valid && nameInput.validity.valid) {
-		return true;
-	}
-
-	return false;
-}
-
 // When page is loaded, get storage and displ
 window.addEventListener("load", () => {
 	if (localStorage.getItem("projects") != null) {
 		window.proj = getStorage();
-		for (let i = 0; i < proj.length; i++) {
+		for (let i = 0; i < proj.length; i += 1) {
 			const element = proj[i];
 			projectArray.push(element);
 			addProjectNav(element, projectArray);

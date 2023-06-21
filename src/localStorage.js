@@ -1,5 +1,3 @@
-import { getCurrentProject } from "./addProject";
-
 function adjustStorage(projectArray) {
 	if (projectArray !== null) {
 		localStorage.setItem("projects", JSON.stringify(projectArray));
