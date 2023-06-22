@@ -111,7 +111,7 @@ function displayTasks(project, projectIndex) {
 				<button id="showMore${index}" class="showButton" onclick="showMore(this.id)">+</button>
 				<div class="taskDisplay name" id="taskDisplayName">${element.title}</div>
 			</div>
-			<div class="taskNameAndButton">
+			<div class="taskNameAndButtonX">
 				<button class="taskDisplay delete" id="deleteTask${index}" onclick="deleteTask(this.id)">Delete</button>
 				<div class="taskDisplay desc" id="taskDisplayDesc ${index}">${element.description}</div>
 			</div>

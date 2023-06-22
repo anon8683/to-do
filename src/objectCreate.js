@@ -19,7 +19,7 @@ function getProjectInput() {
 }
 
 function changeNavItem(name, id) {
-	const navToChange = document.getElementById(`project_${id}`);
+	const navToChange = document.getElementById(`link_project_${id}`);
 	navToChange.textContent = `${name}`;
 }
 

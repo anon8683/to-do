@@ -8,13 +8,19 @@
 	</head>
 
 	<body>
-		<header></header>
+		<header>
+			<div class="header-flex">
+				<img src="./checklist.png" alt="checklist" id="checklist">
+				<h1 id="title">TaskTrack</h1>
+			</div>
+		</header>
 		<main>
 			<nav>
 				<div class="join">
 					<h2>Projects</h2>
-					<button id="addProjectButton">Add Project +</button>
+					<button class="button-18" id="addProjectButton">Add Project +</button>
 				</div>
+
 				<form id="myForm" onsubmit="return false">
 				<div class="container">
 					<div id="projectInput">
@@ -110,9 +116,9 @@
 					<div class="join">
 						<div class="flex">
 							<h1 id="currentProject"></h1>
-							<button class="plus-button plus-button--small" id="addTask"></button>
+							<button class="button-18 addButton" id="addTask">+</button>
 						</div>
-							<button id="editProject">Edit project</button>
+							<button class="button-18" id="editProject">Edit project</button>
 					</div>
 					<h5 id="projectDesc"></h3>
 				</div>

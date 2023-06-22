@@ -31,7 +31,14 @@ window.projectArray = [];
 let currentProject;
 let edit = false;
 
-// button rewrite
+// function addLogoToHeader() {
+// 	const header = document.querySelector("header");
+// 	const img = document.createElement("img");
+// 	img.setAttribute("src", `${checklist}`);
+// 	header.append(img);
+// }
+
+// addLogoToHeader();
 
 const buttons = Array.from(document.querySelectorAll("button"));
 
