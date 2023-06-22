@@ -46,22 +46,43 @@ body {
 	background-color: var(--3);
 }
 
-/* ---------------header--------------- */
+/* ---------------footer--------------- */
+footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
 
+.github {
+	width: 35px;
+}
+/* ---------------header--------------- */
 header {
 	display: flex;
+}
+
+.header-flex {
+	display: flex;
+	align-items: center;
+	margin: 10px;
+	border: 2px solid #0a66c2;
+	border-radius: 20px;
 }
 
 #title {
 	color: var(--2);
 	letter-spacing: 3px;
 	padding: 5px;
-	padding-left: 20px;
 	padding-right: 20px;
-	border: 2px solid #0a66c2;
-	border-radius: 20px;
-	margin: 10px;
 	text-shadow: 5px 5px 10px rgba(135, 135, 135, 0.4);
+}
+
+#checklist {
+	width: 50px;
+	height: 50px;
+	margin-left: 20px;
 }
 
 /* ------------------------------------ */
@@ -435,6 +456,9 @@ button {
 /* ---- */
 
 @media only screen and (max-width: 755px) {
+	header {
+		justify-content: center;
+	}
 	main {
 		display: block;
 	}
@@ -516,7 +540,7 @@ button {
 	background: rgba(0, 0, 0, 0.08);
 	color: rgba(0, 0, 0, 0.3);
 }
-`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":[":root {\r\n\t--1: #f7f7f7;\r\n\t--2: #eeeeee;\r\n\t--3: #393e46;\r\n\t--4: #929aab;\r\n\t--5: #38598b;\r\n\t--6: #a2a8d3;\r\n}\r\n\r\n@import url(\"https://fonts.googleapis.com/css2?family=Anuphan&family=Schibsted+Grotesk&display=swap\");\r\n\r\n* {\r\n\tbox-sizing: border-box;\r\n\tfont-family: \"Schibsted Grotesk\", sans-serif;\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tborder: 0;\r\n}\r\n\r\nbody {\r\n\tdisplay: grid;\r\n\theight: 100vh;\r\n\tgrid-template-rows: 1fr 12fr 1fr;\r\n\tbackground-color: var(--3);\r\n}\r\n\r\n/* ---------------header--------------- */\r\n\r\nheader {\r\n\tdisplay: flex;\r\n}\r\n\r\n#title {\r\n\tcolor: var(--2);\r\n\tletter-spacing: 3px;\r\n\tpadding: 5px;\r\n\tpadding-left: 20px;\r\n\tpadding-right: 20px;\r\n\tborder: 2px solid #0a66c2;\r\n\tborder-radius: 20px;\r\n\tmargin: 10px;\r\n\ttext-shadow: 5px 5px 10px rgba(135, 135, 135, 0.4);\r\n}\r\n\r\n/* ------------------------------------ */\r\n\r\n/* ---------------nav--------------- */\r\n\r\nnav {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tpadding: 10px;\r\n\tgap: 5px;\r\n\tborder-right: 1px solid var(--3);\r\n}\r\n\r\na {\r\n\tlist-style: none;\r\n\ttext-decoration: none;\r\n}\r\n\r\na:visited {\r\n\tcolor: black;\r\n}\r\n\r\na:hover {\r\n\tcursor: pointer;\r\n\ttext-decoration: underline;\r\n}\r\n\r\n.projectButton {\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n\tpadding: 5px;\r\n}\r\n\r\n.deleteButton {\r\n\theight: 20px;\r\n\topacity: 0;\r\n\tfont-size: 0.6rem;\r\n\tfont-weight: 600;\r\n\tborder: 1px solid black;\r\n\tcolor: rgb(0, 0, 0);\r\n\tpadding: 2px;\r\n\tborder-radius: 3px;\r\n\tbackground-color: rgb(233, 100, 100);\r\n}\r\n\r\n.deleteButton:hover {\r\n\tcursor: pointer;\r\n\tborder: 1px solid red;\r\n\topacity: 0.5;\r\n\ttransition: 0.3s;\r\n}\r\n\r\n/* #addProjectButton {\r\n\tscale: 0.6;\r\n\tfont-size: 0.7rem;\r\n\twidth: fit-content;\r\n\tpadding: 5px;\r\n\tpadding-left: 10px;\r\n\tpadding-right: 10px;\r\n\tborder-radius: 5px;\r\n\tborder: 1px solid transparent;\r\n} */\r\n\r\n#addProjectButton:hover,\r\n#editProject:hover,\r\n#addTask:hover,\r\nbutton.projectInput:hover {\r\n\tcursor: pointer;\r\n\tborder: 1px solid var(--3);\r\n}\r\n\r\n.visible {\r\n\t/* display: block !important; */\r\n\tvisibility: visible !important;\r\n\topacity: 1 !important;\r\n}\r\n\r\n.displayNone {\r\n\tdisplay: none;\r\n}\r\n\r\n#projectInput,\r\n#taskInput {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tvisibility: hidden;\r\n\topacity: 0;\r\n\ttransition: opacity 0.3s ease-in;\r\n\tpadding: 20px;\r\n\tgap: 25px;\r\n\tbackground-color: rgb(159, 156, 156);\r\n\tborder-radius: 5px;\r\n\tbox-shadow: 0px 0px 12px 2000px rgba(0, 0, 0, 0.8);\r\n\tposition: fixed;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 350px;\r\n\tborder: 1px solid black;\r\n}\r\n\r\n.radio-inputs {\r\n\tposition: relative;\r\n\talign-self: center;\r\n\tdisplay: flex;\r\n\tflex-wrap: wrap;\r\n\tborder-radius: 0.5rem;\r\n\tbackground-color: #eee;\r\n\tbox-sizing: border-box;\r\n\tbox-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);\r\n\twidth: 300px;\r\n\tfont-size: 14px;\r\n}\r\n\r\n.radio-inputs .radio {\r\n\tflex: 1 1 auto;\r\n\ttext-align: center;\r\n}\r\n\r\n.radio-inputs .radio input {\r\n\tdisplay: none;\r\n}\r\n\r\n.radio-inputs .radio .name {\r\n\tdisplay: flex;\r\n\tcursor: pointer;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\tborder-radius: 0.5rem;\r\n\tborder: none;\r\n\tpadding: 0.5rem 0;\r\n\tcolor: rgba(51, 65, 85, 1);\r\n\ttransition: all 0.15s ease-in-out;\r\n}\r\n\r\n.radio-inputs .radio input:checked + .name {\r\n\tbackground-color: #fff;\r\n\tfont-weight: 600;\r\n}\r\n\r\ninput,\r\ntextarea {\r\n\tresize: none;\r\n\tpadding: 5px;\r\n\toutline: none;\r\n\tborder-radius: 4px;\r\n\tbox-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\r\n}\r\n\r\ninput:focus {\r\n\toutline: 1px solid rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.together {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n.togetherButtons {\r\n\tdisplay: flex;\r\n\tjustify-content: space-evenly;\r\n\tmargin-top: 15px;\r\n}\r\n\r\nbutton.projectInput,\r\nbutton.taskInput {\r\n\twidth: 30%;\r\n\tborder-radius: 5px;\r\n\tpadding: 3px;\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#submitProject,\r\n#submitTask {\r\n\tbackground-color: rgba(0, 128, 0, 0.571);\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#cancelSubmitProject,\r\n#cancelSubmitTask {\r\n\tbackground-color: rgba(158, 17, 17, 0.626);\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#submitTask:hover,\r\n#cancelSubmitTask:hover,\r\n#submitProject:hover,\r\n#cancelSubmitProject:hover {\r\n\tborder: 1px solid black;\r\n\tscale: 1.05;\r\n\ttransition: 0.3s;\r\n\tcursor: pointer;\r\n}\r\n\r\nlabel {\r\n\tfont-size: 0.7rem;\r\n\tpadding: 2px;\r\n}\r\n\r\n.join {\r\n\talign-items: center;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\tpadding: 5px;\r\n\tpadding-bottom: 0;\r\n\t/* border-bottom: 1px solid var(--3); */\r\n\theight: 50px;\r\n}\r\n\r\n/* ---------------main--------------- */\r\n\r\nmain {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: minmax(350px, 20vw) 3fr;\r\n\tbackground-color: var(--2);\r\n}\r\n\r\nsection {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tpadding: 10px;\r\n}\r\n\r\n.intro {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.editTogether {\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n#projectDesc {\r\n\tmargin-top: 20px;\r\n\tpadding: 5px;\r\n}\r\n\r\n#editProject {\r\n\tvisibility: hidden;\r\n}\r\n\r\n#addTask {\r\n\tvisibility: hidden;\r\n\tfont-size: 1.25rem;\r\n\tmin-width: 50px;\r\n}\r\n\r\n#taskContainer {\r\n\tpadding: 20px;\r\n\tborder-radius: 5px;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tgap: 5px;\r\n}\r\n\r\n.taskCard {\r\n\tfont-size: 0.7rem;\r\n\tpadding: 10px;\r\n\tborder: 1px solid rgba(0, 0, 0, 0.205);\r\n\tborder-radius: 5px;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\tgap: 30px;\r\n}\r\n\r\n.delete {\r\n\tdisplay: none;\r\n\tfont-size: 0.6rem;\r\n\tfont-weight: 600;\r\n\tborder: 1px solid black;\r\n\tcolor: rgb(0, 0, 0);\r\n\tpadding: 2px;\r\n\tborder-radius: 3px;\r\n\tbackground-color: rgb(233, 100, 100);\r\n}\r\n\r\n.delete:hover {\r\n\tbackground-color: rgb(228, 191, 122);\r\n\tscale: 1.025;\r\n\tborder: 1px solid black;\r\n\ttransition: 0.2s;\r\n\tcursor: pointer;\r\n}\r\n\r\n.desc {\r\n\tdisplay: none;\r\n\tmax-width: 50ch;\r\n\tpadding: 10px;\r\n\tfont-size: 0.6rem;\r\n}\r\n\r\n.name {\r\n\tfont-weight: bold;\r\n}\r\n\r\n.Low,\r\n.Medium,\r\n.Urgent {\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\tfont-size: 0.6rem;\r\n\tpadding: 5px;\r\n\tborder: 1px solid rgba(0, 0, 0, 0.25);\r\n\tborder-radius: 15px;\r\n}\r\n\r\n.Low {\r\n\tbackground-color: rgba(152, 238, 152, 0.694);\r\n}\r\n\r\n.Medium {\r\n\tbackground-color: rgba(243, 203, 131, 0.731);\r\n}\r\n\r\n.Urgent {\r\n\tbackground-color: rgb(232, 96, 96);\r\n}\r\n\r\n.showButton {\r\n\twidth: 21.5px;\r\n\tbackground-color: transparent;\r\n}\r\n\r\n.showButton:hover {\r\n\tcursor: pointer;\r\n\tcolor: white;\r\n\tscale: 1.05;\r\n}\r\n\r\n.taskJoin {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n}\r\n\r\n.taskComplete {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tgap: 5px;\r\n}\r\n\r\ninput[type=\"checkbox\"] {\r\n\tbox-shadow: none;\r\n}\r\n\r\ninput[type=\"checkbox\"]:focus {\r\n\toutline: none;\r\n}\r\n\r\n.taskNameAndButton,\r\n.taskNameAndButtonX {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n\r\n.flex {\r\n\t/* border-bottom: 1px solid var(--3); */\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tgap: 30px;\r\n}\r\n\r\nbutton {\r\n\tbackground-color: var(--6);\r\n}\r\n\r\n/* ---- */\r\n\r\n@media only screen and (max-width: 755px) {\r\n\tmain {\r\n\t\tdisplay: block;\r\n\t}\r\n\r\n\tnav {\r\n\t\tgap: 0;\r\n\t\tborder-radius: 5px;\r\n\t\tborder: 1px solid;\r\n\t\tmargin: 10px;\r\n\t}\r\n\r\n\t#currentProject {\r\n\t\tfont-size: 1em;\r\n\t}\r\n\r\n\t#projectDesc {\r\n\t\tmargin: 0;\r\n\t}\r\n\r\n\t#taskContainer {\r\n\t\tpadding: 0;\r\n\t}\r\n\r\n\t.taskCard {\r\n\t\tmargin: 0;\r\n\t}\r\n\r\n\t.taskNameAndButtonX {\r\n\t\tflex-direction: column-reverse;\r\n\t\talign-items: baseline;\r\n\t}\r\n\t.desc {\r\n\t\tpadding-left: 0;\r\n\t}\r\n}\r\n\r\n.button-18 {\r\n\tmin-width: 100px;\r\n\theight: 30px;\r\n\talign-items: center;\r\n\tbackground-color: #0a66c2;\r\n\tborder: 1px solid transparent;\r\n\tborder-radius: 100px;\r\n\tcolor: #ffffff;\r\n\tcursor: pointer;\r\n\tdisplay: inline-flex;\r\n\tfont-size: 12px;\r\n\tfont-weight: 600;\r\n\tjustify-content: center;\r\n\tline-height: 20px;\r\n\tmax-width: 480px;\r\n\toverflow: hidden;\r\n\tpadding: 0px;\r\n\tpadding-left: 15px;\r\n\tpadding-right: 15px;\r\n\ttext-align: center;\r\n\ttouch-action: manipulation;\r\n\ttransition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,\r\n\t\tbox-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,\r\n\t\tcolor 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;\r\n\tuser-select: none;\r\n\t-webkit-user-select: none;\r\n\tvertical-align: middle;\r\n}\r\n\r\n.button-18:hover,\r\n.button-18:focus {\r\n\tbackground-color: #16437e;\r\n\tcolor: #ffffff;\r\n}\r\n\r\n.button-18:active {\r\n\tbackground: #09223b;\r\n\tcolor: rgb(255, 255, 255, 0.7);\r\n}\r\n\r\n.button-18:disabled {\r\n\tcursor: not-allowed;\r\n\tbackground: rgba(0, 0, 0, 0.08);\r\n\tcolor: rgba(0, 0, 0, 0.3);\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/style.css"],"names":[],"mappings":"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","sourcesContent":[":root {\r\n\t--1: #f7f7f7;\r\n\t--2: #eeeeee;\r\n\t--3: #393e46;\r\n\t--4: #929aab;\r\n\t--5: #38598b;\r\n\t--6: #a2a8d3;\r\n}\r\n\r\n@import url(\"https://fonts.googleapis.com/css2?family=Anuphan&family=Schibsted+Grotesk&display=swap\");\r\n\r\n* {\r\n\tbox-sizing: border-box;\r\n\tfont-family: \"Schibsted Grotesk\", sans-serif;\r\n\tmargin: 0;\r\n\tpadding: 0;\r\n\tborder: 0;\r\n}\r\n\r\nbody {\r\n\tdisplay: grid;\r\n\theight: 100vh;\r\n\tgrid-template-rows: 1fr 12fr 1fr;\r\n\tbackground-color: var(--3);\r\n}\r\n\r\n/* ---------------footer--------------- */\r\nfooter {\r\n\twidth: 100%;\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\talign-items: center;\r\n\tgap: 10px;\r\n}\r\n\r\n.github {\r\n\twidth: 35px;\r\n}\r\n/* ---------------header--------------- */\r\nheader {\r\n\tdisplay: flex;\r\n}\r\n\r\n.header-flex {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tmargin: 10px;\r\n\tborder: 2px solid #0a66c2;\r\n\tborder-radius: 20px;\r\n}\r\n\r\n#title {\r\n\tcolor: var(--2);\r\n\tletter-spacing: 3px;\r\n\tpadding: 5px;\r\n\tpadding-right: 20px;\r\n\ttext-shadow: 5px 5px 10px rgba(135, 135, 135, 0.4);\r\n}\r\n\r\n#checklist {\r\n\twidth: 50px;\r\n\theight: 50px;\r\n\tmargin-left: 20px;\r\n}\r\n\r\n/* ------------------------------------ */\r\n\r\n/* ---------------nav--------------- */\r\n\r\nnav {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tpadding: 10px;\r\n\tgap: 5px;\r\n\tborder-right: 1px solid var(--3);\r\n}\r\n\r\na {\r\n\tlist-style: none;\r\n\ttext-decoration: none;\r\n}\r\n\r\na:visited {\r\n\tcolor: black;\r\n}\r\n\r\na:hover {\r\n\tcursor: pointer;\r\n\ttext-decoration: underline;\r\n}\r\n\r\n.projectButton {\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\talign-items: center;\r\n\tpadding: 5px;\r\n}\r\n\r\n.deleteButton {\r\n\theight: 20px;\r\n\topacity: 0;\r\n\tfont-size: 0.6rem;\r\n\tfont-weight: 600;\r\n\tborder: 1px solid black;\r\n\tcolor: rgb(0, 0, 0);\r\n\tpadding: 2px;\r\n\tborder-radius: 3px;\r\n\tbackground-color: rgb(233, 100, 100);\r\n}\r\n\r\n.deleteButton:hover {\r\n\tcursor: pointer;\r\n\tborder: 1px solid red;\r\n\topacity: 0.5;\r\n\ttransition: 0.3s;\r\n}\r\n\r\n/* #addProjectButton {\r\n\tscale: 0.6;\r\n\tfont-size: 0.7rem;\r\n\twidth: fit-content;\r\n\tpadding: 5px;\r\n\tpadding-left: 10px;\r\n\tpadding-right: 10px;\r\n\tborder-radius: 5px;\r\n\tborder: 1px solid transparent;\r\n} */\r\n\r\n#addProjectButton:hover,\r\n#editProject:hover,\r\n#addTask:hover,\r\nbutton.projectInput:hover {\r\n\tcursor: pointer;\r\n\tborder: 1px solid var(--3);\r\n}\r\n\r\n.visible {\r\n\t/* display: block !important; */\r\n\tvisibility: visible !important;\r\n\topacity: 1 !important;\r\n}\r\n\r\n.displayNone {\r\n\tdisplay: none;\r\n}\r\n\r\n#projectInput,\r\n#taskInput {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tvisibility: hidden;\r\n\topacity: 0;\r\n\ttransition: opacity 0.3s ease-in;\r\n\tpadding: 20px;\r\n\tgap: 25px;\r\n\tbackground-color: rgb(159, 156, 156);\r\n\tborder-radius: 5px;\r\n\tbox-shadow: 0px 0px 12px 2000px rgba(0, 0, 0, 0.8);\r\n\tposition: fixed;\r\n\ttop: 50%;\r\n\tleft: 50%;\r\n\ttransform: translate(-50%, -50%);\r\n\twidth: 350px;\r\n\tborder: 1px solid black;\r\n}\r\n\r\n.radio-inputs {\r\n\tposition: relative;\r\n\talign-self: center;\r\n\tdisplay: flex;\r\n\tflex-wrap: wrap;\r\n\tborder-radius: 0.5rem;\r\n\tbackground-color: #eee;\r\n\tbox-sizing: border-box;\r\n\tbox-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);\r\n\twidth: 300px;\r\n\tfont-size: 14px;\r\n}\r\n\r\n.radio-inputs .radio {\r\n\tflex: 1 1 auto;\r\n\ttext-align: center;\r\n}\r\n\r\n.radio-inputs .radio input {\r\n\tdisplay: none;\r\n}\r\n\r\n.radio-inputs .radio .name {\r\n\tdisplay: flex;\r\n\tcursor: pointer;\r\n\talign-items: center;\r\n\tjustify-content: center;\r\n\tborder-radius: 0.5rem;\r\n\tborder: none;\r\n\tpadding: 0.5rem 0;\r\n\tcolor: rgba(51, 65, 85, 1);\r\n\ttransition: all 0.15s ease-in-out;\r\n}\r\n\r\n.radio-inputs .radio input:checked + .name {\r\n\tbackground-color: #fff;\r\n\tfont-weight: 600;\r\n}\r\n\r\ninput,\r\ntextarea {\r\n\tresize: none;\r\n\tpadding: 5px;\r\n\toutline: none;\r\n\tborder-radius: 4px;\r\n\tbox-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.5);\r\n}\r\n\r\ninput:focus {\r\n\toutline: 1px solid rgba(0, 0, 0, 0.3);\r\n}\r\n\r\n.together {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n.togetherButtons {\r\n\tdisplay: flex;\r\n\tjustify-content: space-evenly;\r\n\tmargin-top: 15px;\r\n}\r\n\r\nbutton.projectInput,\r\nbutton.taskInput {\r\n\twidth: 30%;\r\n\tborder-radius: 5px;\r\n\tpadding: 3px;\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#submitProject,\r\n#submitTask {\r\n\tbackground-color: rgba(0, 128, 0, 0.571);\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#cancelSubmitProject,\r\n#cancelSubmitTask {\r\n\tbackground-color: rgba(158, 17, 17, 0.626);\r\n\tborder: 1px solid transparent;\r\n}\r\n\r\n#submitTask:hover,\r\n#cancelSubmitTask:hover,\r\n#submitProject:hover,\r\n#cancelSubmitProject:hover {\r\n\tborder: 1px solid black;\r\n\tscale: 1.05;\r\n\ttransition: 0.3s;\r\n\tcursor: pointer;\r\n}\r\n\r\nlabel {\r\n\tfont-size: 0.7rem;\r\n\tpadding: 2px;\r\n}\r\n\r\n.join {\r\n\talign-items: center;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\tpadding: 5px;\r\n\tpadding-bottom: 0;\r\n\t/* border-bottom: 1px solid var(--3); */\r\n\theight: 50px;\r\n}\r\n\r\n/* ---------------main--------------- */\r\n\r\nmain {\r\n\tdisplay: grid;\r\n\tgrid-template-columns: minmax(350px, 20vw) 3fr;\r\n\tbackground-color: var(--2);\r\n}\r\n\r\nsection {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tpadding: 10px;\r\n}\r\n\r\n.intro {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n}\r\n\r\n.editTogether {\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n}\r\n\r\n#projectDesc {\r\n\tmargin-top: 20px;\r\n\tpadding: 5px;\r\n}\r\n\r\n#editProject {\r\n\tvisibility: hidden;\r\n}\r\n\r\n#addTask {\r\n\tvisibility: hidden;\r\n\tfont-size: 1.25rem;\r\n\tmin-width: 50px;\r\n}\r\n\r\n#taskContainer {\r\n\tpadding: 20px;\r\n\tborder-radius: 5px;\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tgap: 5px;\r\n}\r\n\r\n.taskCard {\r\n\tfont-size: 0.7rem;\r\n\tpadding: 10px;\r\n\tborder: 1px solid rgba(0, 0, 0, 0.205);\r\n\tborder-radius: 5px;\r\n\tdisplay: flex;\r\n\tjustify-content: space-between;\r\n\tgap: 30px;\r\n}\r\n\r\n.delete {\r\n\tdisplay: none;\r\n\tfont-size: 0.6rem;\r\n\tfont-weight: 600;\r\n\tborder: 1px solid black;\r\n\tcolor: rgb(0, 0, 0);\r\n\tpadding: 2px;\r\n\tborder-radius: 3px;\r\n\tbackground-color: rgb(233, 100, 100);\r\n}\r\n\r\n.delete:hover {\r\n\tbackground-color: rgb(228, 191, 122);\r\n\tscale: 1.025;\r\n\tborder: 1px solid black;\r\n\ttransition: 0.2s;\r\n\tcursor: pointer;\r\n}\r\n\r\n.desc {\r\n\tdisplay: none;\r\n\tmax-width: 50ch;\r\n\tpadding: 10px;\r\n\tfont-size: 0.6rem;\r\n}\r\n\r\n.name {\r\n\tfont-weight: bold;\r\n}\r\n\r\n.Low,\r\n.Medium,\r\n.Urgent {\r\n\tdisplay: flex;\r\n\tjustify-content: center;\r\n\tfont-size: 0.6rem;\r\n\tpadding: 5px;\r\n\tborder: 1px solid rgba(0, 0, 0, 0.25);\r\n\tborder-radius: 15px;\r\n}\r\n\r\n.Low {\r\n\tbackground-color: rgba(152, 238, 152, 0.694);\r\n}\r\n\r\n.Medium {\r\n\tbackground-color: rgba(243, 203, 131, 0.731);\r\n}\r\n\r\n.Urgent {\r\n\tbackground-color: rgb(232, 96, 96);\r\n}\r\n\r\n.showButton {\r\n\twidth: 21.5px;\r\n\tbackground-color: transparent;\r\n}\r\n\r\n.showButton:hover {\r\n\tcursor: pointer;\r\n\tcolor: white;\r\n\tscale: 1.05;\r\n}\r\n\r\n.taskJoin {\r\n\tdisplay: flex;\r\n\tflex-direction: column;\r\n\tjustify-content: center;\r\n}\r\n\r\n.taskComplete {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tgap: 5px;\r\n}\r\n\r\ninput[type=\"checkbox\"] {\r\n\tbox-shadow: none;\r\n}\r\n\r\ninput[type=\"checkbox\"]:focus {\r\n\toutline: none;\r\n}\r\n\r\n.taskNameAndButton,\r\n.taskNameAndButtonX {\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n}\r\n\r\n.flex {\r\n\t/* border-bottom: 1px solid var(--3); */\r\n\tdisplay: flex;\r\n\talign-items: center;\r\n\tgap: 30px;\r\n}\r\n\r\nbutton {\r\n\tbackground-color: var(--6);\r\n}\r\n\r\n/* ---- */\r\n\r\n@media only screen and (max-width: 755px) {\r\n\theader {\r\n\t\tjustify-content: center;\r\n\t}\r\n\tmain {\r\n\t\tdisplay: block;\r\n\t}\r\n\r\n\tnav {\r\n\t\tgap: 0;\r\n\t\tborder-radius: 5px;\r\n\t\tborder: 1px solid;\r\n\t\tmargin: 10px;\r\n\t}\r\n\r\n\t#currentProject {\r\n\t\tfont-size: 1em;\r\n\t}\r\n\r\n\t#projectDesc {\r\n\t\tmargin: 0;\r\n\t}\r\n\r\n\t#taskContainer {\r\n\t\tpadding: 0;\r\n\t}\r\n\r\n\t.taskCard {\r\n\t\tmargin: 0;\r\n\t}\r\n\r\n\t.taskNameAndButtonX {\r\n\t\tflex-direction: column-reverse;\r\n\t\talign-items: baseline;\r\n\t}\r\n\t.desc {\r\n\t\tpadding-left: 0;\r\n\t}\r\n}\r\n\r\n.button-18 {\r\n\tmin-width: 100px;\r\n\theight: 30px;\r\n\talign-items: center;\r\n\tbackground-color: #0a66c2;\r\n\tborder: 1px solid transparent;\r\n\tborder-radius: 100px;\r\n\tcolor: #ffffff;\r\n\tcursor: pointer;\r\n\tdisplay: inline-flex;\r\n\tfont-size: 12px;\r\n\tfont-weight: 600;\r\n\tjustify-content: center;\r\n\tline-height: 20px;\r\n\tmax-width: 480px;\r\n\toverflow: hidden;\r\n\tpadding: 0px;\r\n\tpadding-left: 15px;\r\n\tpadding-right: 15px;\r\n\ttext-align: center;\r\n\ttouch-action: manipulation;\r\n\ttransition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,\r\n\t\tbox-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,\r\n\t\tcolor 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;\r\n\tuser-select: none;\r\n\t-webkit-user-select: none;\r\n\tvertical-align: middle;\r\n}\r\n\r\n.button-18:hover,\r\n.button-18:focus {\r\n\tbackground-color: #16437e;\r\n\tcolor: #ffffff;\r\n}\r\n\r\n.button-18:active {\r\n\tbackground: #09223b;\r\n\tcolor: rgb(255, 255, 255, 0.7);\r\n}\r\n\r\n.button-18:disabled {\r\n\tcursor: not-allowed;\r\n\tbackground: rgba(0, 0, 0, 0.08);\r\n\tcolor: rgba(0, 0, 0, 0.3);\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1203,8 +1227,6 @@ function createCard() {
 function orderTasksByDate(project) {
 	const { tasks } = project;
 	tasks.sort((a, b) => (0,date_fns__WEBPACK_IMPORTED_MODULE_0__["default"])(a.date, b.date)); // sorts our tasks by date
-	console.log(tasks);
-	console.log(project);
 }
 
 
@@ -1574,16 +1596,6 @@ function getTaskInput() {
 
 /***/ }),
 
-/***/ "./src/images/checklist.png":
-/*!**********************************!*\
-  !*** ./src/images/checklist.png ***!
-  \**********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "4cbed138972ee470cf52.png";
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
@@ -1657,18 +1669,6 @@ function _typeof(obj) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -1685,29 +1685,6 @@ function _typeof(obj) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
@@ -1721,16 +1698,14 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _images_checklist_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./images/checklist.png */ "./src/images/checklist.png");
-/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* harmony import */ var _objectCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./objectCreate */ "./src/objectCreate.js");
-/* harmony import */ var _addProject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addProject */ "./src/addProject.js");
-/* harmony import */ var _displayItems__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./displayItems */ "./src/displayItems.js");
-/* harmony import */ var _card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./card */ "./src/card.js");
-/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
+/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
+/* harmony import */ var _objectCreate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./objectCreate */ "./src/objectCreate.js");
+/* harmony import */ var _addProject__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./addProject */ "./src/addProject.js");
+/* harmony import */ var _displayItems__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./displayItems */ "./src/displayItems.js");
+/* harmony import */ var _card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./card */ "./src/card.js");
+/* harmony import */ var _localStorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./localStorage */ "./src/localStorage.js");
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
-
 
 
 
@@ -1745,7 +1720,14 @@ window.projectArray = [];
 let currentProject;
 let edit = false;
 
-// button rewrite
+// function addLogoToHeader() {
+// 	const header = document.querySelector("header");
+// 	const img = document.createElement("img");
+// 	img.setAttribute("src", `${checklist}`);
+// 	header.append(img);
+// }
+
+// addLogoToHeader();
 
 const buttons = Array.from(document.querySelectorAll("button"));
 
@@ -1771,11 +1753,11 @@ buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		switch (btn.id) {
 			case "addTask":
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.addVisibleClass)("#taskInput");
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.addVisibleClass)("#taskInput");
 				break;
 			case "addProjectButton":
 				// show project inputs
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.addVisibleClass)("#projectInput");
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.addVisibleClass)("#projectInput");
 				break;
 			case "submitProject":
 				{
@@ -1783,59 +1765,59 @@ buttons.forEach((btn) => {
 						// e.preventDefault();
 						return;
 					}
-					const project = (0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.createProject)((0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.getProjectInput)());
+					const project = (0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.createProject)((0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.getProjectInput)());
 					projects.push(project);
 					projectArray.push(project); // this will always contain total projects, add to localstorage
-					(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.adjustStorage)(projectArray);
-					(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.getStorage)();
-					(0,_addProject__WEBPACK_IMPORTED_MODULE_3__.addProjectNav)(project, projectArray);
+					(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.adjustStorage)(projectArray);
+					(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.getStorage)();
+					(0,_addProject__WEBPACK_IMPORTED_MODULE_2__.addProjectNav)(project, projectArray);
 					if (projectArray.length <= 1) {
 						// by default display our first entry
-						(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.displayCurrentProject)(projectArray, 0);
+						(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.displayCurrentProject)(projectArray, 0);
 						currentProject = 0;
 					}
-					(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.removeVisibleClass)("#projectInput");
+					(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.removeVisibleClass)("#projectInput");
 				}
 				break;
 			case "cancelSubmitProject":
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.removeVisibleClass)("#projectInput");
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.removeVisibleClass)("#projectInput");
 				if (edit === true) {
-					(0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.changeButton)(edit, true);
+					(0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.changeButton)(edit, true);
 					edit = false;
 				}
 				break;
 			case "cancelSubmitTask":
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.removeVisibleClass)("#taskInput");
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.removeVisibleClass)("#taskInput");
 				break;
 			case "submitTask": {
 				if (!validateTask()) {
 					// e.preventDefault();
 					return;
 				}
-				const task = (0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.createTask)((0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.getTaskInput)()); // gives a task object from our inputs
-				const current = projectArray[(0,_addProject__WEBPACK_IMPORTED_MODULE_3__.getCurrentProject)()]; //
+				const task = (0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.createTask)((0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.getTaskInput)()); // gives a task object from our inputs
+				const current = projectArray[(0,_addProject__WEBPACK_IMPORTED_MODULE_2__.getCurrentProject)()]; //
 				current.tasks.push(task);
-				(0,_card__WEBPACK_IMPORTED_MODULE_5__.orderTasksByDate)(current);
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.removeVisibleClass)("#taskInput");
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.displayTasks)(current, (0,_addProject__WEBPACK_IMPORTED_MODULE_3__.getCurrentProject)());
-				(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.adjustStorage)(projectArray); // adds task to storage
+				(0,_card__WEBPACK_IMPORTED_MODULE_4__.orderTasksByDate)(current);
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.removeVisibleClass)("#taskInput");
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.displayTasks)(current, (0,_addProject__WEBPACK_IMPORTED_MODULE_2__.getCurrentProject)());
+				(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.adjustStorage)(projectArray); // adds task to storage
 				break;
 			}
 			case "editProject":
 				// when edit button is clicked
 				// set get our currently selected project ID
 				// make our input form visible and change the button
-				currentProject = (0,_addProject__WEBPACK_IMPORTED_MODULE_3__.getCurrentProject)();
-				(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.addVisibleClass)("#projectInput");
+				currentProject = (0,_addProject__WEBPACK_IMPORTED_MODULE_2__.getCurrentProject)();
+				(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.addVisibleClass)("#projectInput");
 				edit = true;
-				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.changeButton)(edit);
+				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.changeButton)(edit);
 				break;
 
 			case "submitEdit":
-				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.editProject)(projectArray, currentProject);
+				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.editProject)(projectArray, currentProject);
 				edit = false;
-				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_2__.changeButton)(edit);
-				(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.adjustStorage)(projectArray);
+				(0,_objectCreate__WEBPACK_IMPORTED_MODULE_1__.changeButton)(edit);
+				(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.adjustStorage)(projectArray);
 				break;
 			default:
 		}
@@ -1848,21 +1830,21 @@ window.addEventListener("load", () => {
 		localStorage.getItem("projects") !== null &&
 		localStorage.getItem("projects") !== "[]"
 	) {
-		window.proj = (0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.getStorage)();
+		window.proj = (0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.getStorage)();
 		for (let i = 0; i < proj.length; i += 1) {
 			const element = proj[i];
 			projectArray.push(element);
-			(0,_addProject__WEBPACK_IMPORTED_MODULE_3__.addProjectNav)(element, projectArray);
+			(0,_addProject__WEBPACK_IMPORTED_MODULE_2__.addProjectNav)(element, projectArray);
 		}
 
-		if ((0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.getLastProject)() === null) {
-			(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.setLastProject)(0);
+		if ((0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.getLastProject)() === null) {
+			(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.setLastProject)(0);
 		}
 
 		// display out last viewed project and click the nav to generate the tasks
-		(0,_displayItems__WEBPACK_IMPORTED_MODULE_4__.displayCurrentProject)(projectArray, (0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.getLastProject)());
+		(0,_displayItems__WEBPACK_IMPORTED_MODULE_3__.displayCurrentProject)(projectArray, (0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.getLastProject)());
 		const itemToClick = document.getElementById(
-			`link_project_${(0,_localStorage__WEBPACK_IMPORTED_MODULE_6__.getLastProject)()}`
+			`link_project_${(0,_localStorage__WEBPACK_IMPORTED_MODULE_5__.getLastProject)()}`
 		);
 		itemToClick.click();
 	}
