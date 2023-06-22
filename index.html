@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>To-do</title>
+		<script src="bundle.js" defer></script>
+	</head>
+
+	<body>
+		<header>
+			<div class="header-flex">
+				<img src="./checklist.png" alt="checklist" id="checklist">
+				<h1 id="title">TaskTrack</h1>
+			</div>
+		</header>
+		<main>
+			<nav>
+				<div class="join">
+					<h2>Projects</h2>
+					<button class="button-18" id="addProjectButton">Add Project +</button>
+				</div>
+
+				<form id="myForm" onsubmit="return false">
+				<div class="container">
+					<div id="projectInput">
+						<div class="together">
+							<label for="name">Project Name:</label>
+							<input
+								type="text"
+								class="projectInput"
+								id="projectName"
+								name="name"
+								required
+							/>
+						</div>
+						<div class="together">
+							<label for="description">Project Decription:</label>
+							<input
+								type="text"
+								class="projectInput"
+								id="projectDescription"
+								name="description"
+							/>
+						</div>
+
+						<div class="togetherButtons">
+							<button class="projectInput" id="cancelSubmitProject">
+								Cancel
+							</button>
+							<button class="projectInput" id="submitProject">Save</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<form id="myForm" onsubmit="return false">
+				<div class="container">
+					<div id="taskInput">
+						<div class="together">
+							<label for="name">Task Name:</label>
+							<input
+								type="text"
+								class="taskInput"
+								id="taskName"
+								name="name"
+								required
+							/>
+						</div>
+			
+						<div class="together">
+							<label for="description">Task Decription:</label>
+							<textarea name="description" class="taskInput" id="taskDescription" cols="30" rows="5"></textarea>
+						</div>
+						<div class="together">
+							<label for="date">Due date:</label>
+							<input
+								type="datetime-local"
+								class="taskInput"
+								id="taskDate"
+								name="date"
+								required
+							/>
+						</div>
+
+						<div class="together">
+							<div class="radio-inputs">
+								<label class="radio">
+								  <input type="radio" name="radio" checked="" id="Low">
+								  <span class="name">Low</span>
+								</label>
+								<label class="radio">
+								  <input type="radio" name="radio" id="Medium">
+								  <span class="name">Medium</span>
+								</label>
+									
+								<label class="radio">
+								  <input type="radio" name="radio" id="Urgent">
+								  <span class="name">Urgent</span>
+								</label>
+							  </div>
+						</div>
+						
+						<div class="togetherButtons">
+							<button class="taskInput" id="cancelSubmitTask">
+								Cancel
+							</button>
+							<button class="taskInput" id="submitTask">Save</button>
+						</div>
+					</div>
+				</div>
+			</form>
+				<div id="projectNav"></div>
+			</nav>
+			<section>
+				<div class="intro">
+					<div class="join">
+						<div class="flex">
+							<h1 id="currentProject"></h1>
+							<button class="button-18 addButton" id="addTask">+</button>
+						</div>
+							<button class="button-18" id="editProject">Edit project</button>
+					</div>
+					<h5 id="projectDesc"></h3>
+				</div>
+			</section>
+		</main>
+		<footer>
+			<a href="https://github.com/anon8683/to-do">
+			  <img src="./github-mark.png" alt="github" class="github" />
+			</a>
+		  </footer>
+	</body>
+</html>
