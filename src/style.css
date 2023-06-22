@@ -24,8 +24,19 @@ body {
 	background-color: var(--3);
 }
 
-/* ---------------header--------------- */
+/* ---------------footer--------------- */
+footer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
 
+.github {
+	width: 35px;
+}
+/* ---------------header--------------- */
 header {
 	display: flex;
 }
