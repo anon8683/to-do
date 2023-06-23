@@ -22,25 +22,29 @@ import {
 	getStorage,
 	getLastProject,
 	setLastProject,
+	getSideStorage,
 } from "./localStorage";
 
 window.projects = [];
 window.x = undefined;
 
 window.projectArray = [];
+window.sideArray = [];
 let currentProject;
 let edit = false;
 
-// function addLogoToHeader() {
-// 	const header = document.querySelector("header");
-// 	const img = document.createElement("img");
-// 	img.setAttribute("src", `${checklist}`);
-// 	header.append(img);
-// }
-
-// addLogoToHeader();
+// changes
+if (sideArray.length < 1) {
+	const all = createProject(["all", "all tasks"]);
+	const today = createProject(["today", "today tasks"]);
+	const week = createProject(["week", "week tasks"]);
+	const important = createProject(["important", "important tasks"]);
+	sideArray.push(all, today, week, important);
+}
+// changes
 
 const buttons = Array.from(document.querySelectorAll("button"));
+const catergory = Array.from(document.querySelectorAll(".catergory"));
 
 function validateTask() {
 	const nameInput = document.getElementById("taskName");
@@ -59,6 +63,30 @@ function validateProject() {
 	}
 	return false;
 }
+
+// changes
+catergory.forEach((cat) => {
+	cat.addEventListener("click", () => {
+		console.log(cat.id);
+		displayCurrentProject(1, cat.id);
+
+		switch (cat.id) {
+			case "all":
+				if (sideArray[0].tasks.length > 0) {
+					orderTasksByDate(sideArray[0]);
+					displayTasks(sideArray[0], "all");
+				}
+				break;
+			case "important":
+				if (sideArray[3].tasks.length > 0) {
+					displayTasks(sideArray[3], "important");
+				}
+				break;
+			default:
+		}
+	});
+});
+// changes
 
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
@@ -106,8 +134,17 @@ buttons.forEach((btn) => {
 					return;
 				}
 				const task = createTask(getTaskInput()); // gives a task object from our inputs
+				if (task.priority === "Urgent") {
+					console.log("task is urgent");
+					sideArray[3].tasks.push(task);
+				}
 				const current = projectArray[getCurrentProject()]; //
 				current.tasks.push(task);
+				// changes
+				sideArray[0].tasks.push(task);
+				adjustStorage(null, sideArray);
+				// changes
+
 				orderTasksByDate(current);
 				removeVisibleClass("#taskInput");
 				displayTasks(current, getCurrentProject());
@@ -137,6 +174,21 @@ buttons.forEach((btn) => {
 
 // When page is loaded, get storage and displ
 window.addEventListener("load", () => {
+	// console.log(getSideStorage());
+	// if (localStorage.getItem("sideProjects") !== null) {
+	// 	window.side = getSideStorage();
+
+	// 	for (let index = 0; index < side.length; index++) {
+	// 		const element = side[index];
+	// 		sideArray.push(element);
+	// 	}
+	// }
+
+	if (localStorage.getItem("sideProjects") !== null) {
+		console.log(getSideStorage());
+		sideArray = getSideStorage();
+	}
+
 	if (
 		localStorage.getItem("projects") !== null &&
 		localStorage.getItem("projects") !== "[]"

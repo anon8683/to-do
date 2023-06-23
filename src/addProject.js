@@ -7,7 +7,7 @@ let count = 0;
 
 // Our current project by default is 0
 // Whenever a project is clicked, it ID (index in array) becomes current project
-let currentProject = 0;
+window.currentProject = 0;
 function addProjectNav(project, projectArray) {
 	const nav = document.querySelector("nav");
 	const name = project.name;
@@ -25,14 +25,7 @@ function addProjectNav(project, projectArray) {
 	nav.append(newProject);
 
 	const linkToTrack = document.getElementById(`link_project_${count}`);
-
-	// const projectNav = document.getElementById("projectNav");
-
-	// projectNav.innerHTML = `
-	// <a href="#" class="projectButton" id="project_${count}>${name}</a>
-	// `;
 	const id = newProject.id.slice(-1);
-	// setLastProject(id);
 
 	linkToTrack.addEventListener("click", () => {
 		currentProject = id;
@@ -40,8 +33,30 @@ function addProjectNav(project, projectArray) {
 		displayTasks(projectArray[currentProject], currentProject);
 		setLastProject(id);
 	});
+
 	count += 1;
 }
+
+const catergory = Array.from(document.querySelectorAll(".catergory"));
+catergory.forEach((item) => {
+	item.addEventListener("click", () => {
+		switch (item.id) {
+			case "all":
+				currentProject = "all";
+				break;
+			case "today":
+				currentProject = 1;
+				break;
+			case "week":
+				currentProject = 2;
+				break;
+			case "important":
+				currentProject = "important";
+				break;
+			default:
+		}
+	});
+});
 
 // Returns the ID of our currently selected project
 function getCurrentProject() {

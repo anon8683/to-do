@@ -43,20 +43,61 @@ function displayCurrentProject(projectArray, id) {
 	const title = document.getElementById("currentProject");
 	const desc = document.getElementById("projectDesc");
 
+	if (projectArray === 1) {
+		switch (id) {
+			case "all":
+				title.textContent = `All Tasks`;
+				break;
+			case "today":
+				title.textContent = `Today`;
+				break;
+			case "week":
+				title.textContent = `Week`;
+				break;
+			case "important":
+				title.textContent = `Important`;
+				break;
+			default:
+		}
+
+		return;
+	}
+
 	title.textContent = projectArray[id].name;
 	desc.textContent = projectArray[id].desc;
 	edit.style.visibility = "visible";
 	add.style.visibility = "visible";
 }
+
 function completeTask(id) {
 	const index = id.slice(-1);
 	const projectIndex = getCurrentProject();
+	console.log(projectIndex);
 	const checkbox = document.getElementById(`${id}`);
 	const cardToChange = document.getElementById(
 		`project_${projectIndex}_task_${index}`
 	);
 	cardToChange.style.textDecoration = "line-through";
 	checkbox.setAttribute("onclick", "unCompleteTask(this.id)");
+	switch (projectIndex) {
+		case "all":
+			sideArray[0].tasks[index].completed = true;
+			adjustStorage(null, sideArray);
+			return;
+		case "today":
+			sideArray[1].tasks[index].completed = true;
+			adjustStorage(null, sideArray);
+			return;
+		case "week":
+			sideArray[2].tasks[index].completed = true;
+			adjustStorage(null, sideArray);
+			return;
+		case "important":
+			sideArray[3].tasks[index].completed = true;
+			adjustStorage(null, sideArray);
+			return;
+		default:
+	}
 
 	projectArray[projectIndex].tasks[index].completed = true;
 	adjustStorage(projectArray);
@@ -73,6 +114,25 @@ function unCompleteTask(id) {
 	);
 	cardToChange.style.textDecoration = "none";
 	checkbox.setAttribute("onclick", "completeTask(this.id)");
+	switch (projectIndex) {
+		case "all":
+			sideArray[0].tasks[index].completed = false;
+			adjustStorage(null, sideArray);
+			return;
+		case "today":
+			sideArray[1].tasks[index].completed = false;
+			adjustStorage(null, sideArray);
+			return;
+		case "week":
+			sideArray[2].tasks[index].completed = false;
+			adjustStorage(null, sideArray);
+			return;
+		case "important":
+			sideArray[3].tasks[index].completed = false;
+			adjustStorage(null, sideArray);
+			return;
+		default:
+	}
 
 	projectArray[projectIndex].tasks[index].completed = false;
 	adjustStorage(projectArray);
@@ -136,6 +196,7 @@ function displayTasks(project, projectIndex) {
 		}
 	}
 }
+
 function showMore(id) {
 	const buttonClicked = document.getElementById(`${id}`);
 	const index = id.slice(-1);
