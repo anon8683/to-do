@@ -224,11 +224,31 @@ function showLess(id) {
 
 function deleteTask(id) {
 	const projectIndex = getCurrentProject();
+	console.log(projectIndex);
 	const index = id.slice(-1);
 	const cardToDelete = document.getElementById(
 		`project_${projectIndex}_task_${index}`
 	);
 	cardToDelete.remove();
+	switch (projectIndex) {
+		case "all":
+			sideArray[0].tasks.splice(index, 1);
+			adjustStorage(null, sideArray);
+			return;
+		case "today":
+			sideArray[1].tasks.splice(index, 1);
+			adjustStorage(null, sideArray);
+			return;
+		case "week":
+			sideArray[2].tasks.splice(index, 1);
+			adjustStorage(null, sideArray);
+			return;
+		case "important":
+			sideArray[3].tasks.splice(index, 1);
+			adjustStorage(null, sideArray);
+			return;
+		default:
+	}
 
 	projectArray[projectIndex].tasks.splice(index, 1);
 	adjustStorage(projectArray);
