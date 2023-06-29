@@ -10,7 +10,7 @@
 	<body>
 		<header>
 			<div class="header-flex">
-				<img src="./images/checklist.png" alt="checklist" id="checklist">
+				<img src="./images/checklist.png" alt="checklist" id="checklist" />
 				<h1 id="title">TaskTrack</h1>
 			</div>
 		</header>
@@ -22,117 +22,119 @@
 				</div>
 
 				<div class="catergory all" id="all">
-					<img src="./images/tray.png" alt="foldertrayicon" class="icon">
-					<h3 id="all">All Tasks</h2>
+					<img src="./images/tray.png" alt="foldertrayicon" class="icon" />
+					<h3>All Tasks</h3>
 				</div>
 
 				<div class="catergory today" id="today">
-					<img src="./images/today.png" alt="todayicon" class="icon">
-					<h3 id="today">Today</h2>
+					<img src="./images/today.png" alt="todayicon" class="icon" />
+					<h3>Today</h3>
 				</div>
 
-				
 				<div class="catergory week" id="week">
-					<img src="./images/7days.png" alt="sevendayicon" class="icon">
-					<h3 id="week">Week</h2>
+					<img src="./images/7days.png" alt="sevendayicon" class="icon" />
+					<h3>Week</h3>
 				</div>
 
-				
 				<div class="catergory important" id="important">
-					<img src="./images/star.png" alt="favouriteicon" class="icon">
-					<h3 id="month">Important</h2>
+					<img src="./images/star.png" alt="favouriteicon" class="icon" />
+					<h3>Important</h3>
 				</div>
 
 				<h2>Projects</h2>
 
-				<form id="myForm" onsubmit="return false">
-				<div class="container">
-					<div id="projectInput">
-						<div class="together">
-							<label for="name">Project Name:</label>
-							<input
-								type="text"
-								class="projectInput"
-								id="projectName"
-								name="name"
-								required
-							/>
-						</div>
-						<div class="together">
-							<label for="description">Project Decription:</label>
-							<input
-								type="text"
-								class="projectInput"
-								id="projectDescription"
-								name="description"
-							/>
-						</div>
+				<form id="projectForm" onsubmit="return false">
+					<div class="container">
+						<div id="projectInput">
+							<div class="together">
+								<label>Project Name:</label>
+								<input
+									type="text"
+									class="projectInput"
+									id="projectName"
+									name="name"
+									required
+								/>
+							</div>
+							<div class="together">
+								<label>Project Decription:</label>
+								<input
+									type="text"
+									class="projectInput"
+									id="projectDescription"
+									name="description"
+								/>
+							</div>
 
-						<div class="togetherButtons">
-							<button class="projectInput" id="cancelSubmitProject">
-								Cancel
-							</button>
-							<button class="projectInput" id="submitProject">Save</button>
+							<div class="togetherButtons">
+								<button class="projectInput" id="cancelSubmitProject">
+									Cancel
+								</button>
+								<button class="projectInput" id="submitProject">Save</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</form>
-			<form id="myForm" onsubmit="return false">
-				<div class="container">
-					<div id="taskInput">
-						<div class="together">
-							<label for="name">Task Name:</label>
-							<input
-								type="text"
-								class="taskInput"
-								id="taskName"
-								name="name"
-								required
-							/>
-						</div>
-			
-						<div class="together">
-							<label for="description">Task Decription:</label>
-							<textarea name="description" class="taskInput" id="taskDescription" cols="30" rows="5"></textarea>
-						</div>
-						<div class="together">
-							<label for="date">Due date:</label>
-							<input
-								type="datetime-local"
-								class="taskInput"
-								id="taskDate"
-								name="date"
-								required
-							/>
-						</div>
+				</form>
+				<form id="taskForm" onsubmit="return false">
+					<div class="container">
+						<div id="taskInput">
+							<div class="together">
+								<label>Task Name:</label>
+								<input
+									type="text"
+									class="taskInput"
+									id="taskName"
+									name="name"
+									required
+								/>
+							</div>
 
-						<div class="together">
-							<div class="radio-inputs">
-								<label class="radio">
-								  <input type="radio" name="radio" checked="" id="Low">
-								  <span class="name">Low</span>
-								</label>
-								<label class="radio">
-								  <input type="radio" name="radio" id="Medium">
-								  <span class="name">Medium</span>
-								</label>
-									
-								<label class="radio">
-								  <input type="radio" name="radio" id="Urgent">
-								  <span class="name">Urgent</span>
-								</label>
-							  </div>
-						</div>
-						
-						<div class="togetherButtons">
-							<button class="taskInput" id="cancelSubmitTask">
-								Cancel
-							</button>
-							<button class="taskInput" id="submitTask">Save</button>
+							<div class="together">
+								<label>Task Decription:</label>
+								<textarea
+									name="description"
+									class="taskInput"
+									id="taskDescription"
+									cols="30"
+									rows="5"
+								></textarea>
+							</div>
+							<div class="together">
+								<label>Due date:</label>
+								<input
+									type="datetime-local"
+									class="taskInput"
+									id="taskDate"
+									name="date"
+									required
+								/>
+							</div>
+
+							<div class="together">
+								<div class="radio-inputs">
+									<label class="radio">
+										<input type="radio" name="radio" checked="" id="Low" />
+										<span class="name">Low</span>
+									</label>
+									<label class="radio">
+										<input type="radio" name="radio" id="Medium" />
+										<span class="name">Medium</span>
+									</label>
+
+									<label class="radio">
+										<input type="radio" name="radio" id="Urgent" />
+										<span class="name">Urgent</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="togetherButtons">
+								<button class="taskInput" id="cancelSubmitTask">Cancel</button>
+								<button class="taskInput" id="submitTask">Save</button>
+							</div>
 						</div>
 					</div>
-				</div>
-			</form>
+				</form>
 				<div id="projectNav"></div>
 			</nav>
 			<section>
@@ -142,16 +144,16 @@
 							<h1 id="currentProject"></h1>
 							<button class="button-18 addButton" id="addTask">+</button>
 						</div>
-							<button class="button-18" id="editProject">Edit project</button>
+						<button class="button-18" id="editProject">Edit project</button>
 					</div>
-					<h5 id="projectDesc"></h3>
+					<h5 id="projectDesc"></h5>
 				</div>
 			</section>
 		</main>
 		<footer>
 			<a href="https://github.com/anon8683/to-do">
-			  <img src="./images/github-mark.png" alt="github" class="github" />
+				<img src="./images/github-mark.png" alt="github" class="github" />
 			</a>
-		  </footer>
+		</footer>
 	</body>
 </html>

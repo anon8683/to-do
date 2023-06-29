@@ -98,13 +98,20 @@ function completeTask(id) {
 			return;
 		default:
 	}
-
+	checkIfExistsElswhere(id);
 	projectArray[projectIndex].tasks[index].completed = true;
 	adjustStorage(projectArray);
 
 	// remove from local storage
 }
 
+function checkIfExistsElswhere(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+
+	const task = projectArray[projectIndex].tasks[index];
+	console.log(task);
+}
 function unCompleteTask(id) {
 	const index = id.slice(-1);
 	const projectIndex = getCurrentProject();

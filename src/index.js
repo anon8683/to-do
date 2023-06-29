@@ -79,6 +79,7 @@ catergory.forEach((cat) => {
 				break;
 			case "important":
 				if (sideArray[3].tasks.length > 0) {
+					orderTasksByDate(sideArray[3]);
 					displayTasks(sideArray[3], "important");
 				}
 				break;
@@ -130,17 +131,20 @@ buttons.forEach((btn) => {
 				break;
 			case "submitTask": {
 				if (!validateTask()) {
-					// e.preventDefault();
 					return;
 				}
 				const task = createTask(getTaskInput()); // gives a task object from our inputs
-				if (task.priority === "Urgent") {
-					console.log("task is urgent");
-					sideArray[3].tasks.push(task);
-				}
+
 				const current = projectArray[getCurrentProject()]; //
 				current.tasks.push(task);
-				// changes
+
+				// we check if our task needs adding to any of our default catergories
+				// if the task priority is urgent, add to urgent array
+				if (task.priority === "Urgent") {
+					sideArray[3].tasks.push(task);
+				}
+
+				// Always push the task to our "All task" array and adjust our storage
 				sideArray[0].tasks.push(task);
 				adjustStorage(null, sideArray);
 				// changes
