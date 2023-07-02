@@ -42,9 +42,6 @@ if (sideArray.length < 1) {
 	sideArray.push(all, today, week, important);
 }
 
-const buttons = Array.from(document.querySelectorAll("button"));
-const catergory = Array.from(document.querySelectorAll(".catergory"));
-
 // task input validation, requires a valid name and date to submit
 function validateTask() {
 	const nameInput = document.getElementById("taskName");
@@ -64,35 +61,34 @@ function validateProject() {
 	return false;
 }
 
-catergory.forEach((cat) => {
-	cat.addEventListener("click", () => {
-		displayCurrentProject(1, cat.id);
+const catergory = Array.from(document.querySelectorAll(".catergory"));
+catergory.forEach((item) => {
+	item.addEventListener("click", () => {
+		const add = document.getElementById("addTask");
+		displayCurrentProject(1, item.id);
+		add.style.visibility = "hidden";
 
-		switch (cat.id) {
+		switch (item.id) {
 			case "all":
-				if (sideArray[0].tasks.length > 0) {
-					orderTasksByDate(sideArray[0]);
-					displayTasks(sideArray[0], "all");
-				}
+				orderTasksByDate(sideArray[0]);
+				displayTasks(sideArray[0], "all");
 				break;
+
 			case "today":
-				if (sideArray[1].tasks.length > 0) {
-					orderTasksByDate(sideArray[1]);
-					displayTasks(sideArray[1], "today");
-				}
+				orderTasksByDate(sideArray[1]);
+				displayTasks(sideArray[1], "today");
 				break;
+
 			case "week":
-				if (sideArray[2].tasks.length > 0) {
-					orderTasksByDate(sideArray[2]);
-					displayTasks(sideArray[2], "week");
-				}
+				orderTasksByDate(sideArray[2]);
+				displayTasks(sideArray[2], "week");
 				break;
+
 			case "important":
-				if (sideArray[3].tasks.length > 0) {
-					orderTasksByDate(sideArray[3]);
-					displayTasks(sideArray[3], "important");
-				}
+				orderTasksByDate(sideArray[3]);
+				displayTasks(sideArray[3], "important");
 				break;
+
 			default:
 		}
 	});
@@ -124,6 +120,7 @@ function week(task) {
 	return false;
 }
 
+const buttons = Array.from(document.querySelectorAll("button"));
 // listen to all buttons on the page, switch case to perform a set of actions based on what button is clicked
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
