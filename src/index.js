@@ -64,10 +64,8 @@ function validateProject() {
 	return false;
 }
 
-// changes
 catergory.forEach((cat) => {
 	cat.addEventListener("click", () => {
-		console.log(cat.id);
 		displayCurrentProject(1, cat.id);
 
 		switch (cat.id) {
@@ -75,6 +73,18 @@ catergory.forEach((cat) => {
 				if (sideArray[0].tasks.length > 0) {
 					orderTasksByDate(sideArray[0]);
 					displayTasks(sideArray[0], "all");
+				}
+				break;
+			case "today":
+				if (sideArray[1].tasks.length > 0) {
+					orderTasksByDate(sideArray[1]);
+					displayTasks(sideArray[1], "today");
+				}
+				break;
+			case "week":
+				if (sideArray[2].tasks.length > 0) {
+					orderTasksByDate(sideArray[2]);
+					displayTasks(sideArray[2], "week");
 				}
 				break;
 			case "important":
@@ -87,7 +97,32 @@ catergory.forEach((cat) => {
 		}
 	});
 });
-// changes
+
+// get our taskTime in seconds, and our current time. If the difference is within 86400 seconds (a day)
+// then our task is due today and should be added to today list
+function today(task) {
+	const taskEpoch = (task.date.getTime() / 1000).toFixed(0);
+	const currentEpoch = (new Date().getTime() / 1000).toFixed(0);
+	const time = taskEpoch - currentEpoch;
+
+	if (time < 86400 && time > 0) {
+		return true;
+	}
+
+	return false;
+}
+
+function week(task) {
+	const taskEpoch = (task.date.getTime() / 1000).toFixed(0);
+	const currentEpoch = (new Date().getTime() / 1000).toFixed(0);
+	const time = taskEpoch - currentEpoch;
+
+	if (time < 86400 * 7 && time > 0) {
+		return true;
+	}
+
+	return false;
+}
 
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
@@ -144,6 +179,16 @@ buttons.forEach((btn) => {
 					sideArray[3].tasks.push(task);
 				}
 
+				// if the task is today, add it to our Today list
+				if (today(task)) {
+					sideArray[1].tasks.push(task);
+				}
+
+				// if the task is within the next week, add it to our week list
+				if (week(task)) {
+					sideArray[2].tasks.push(task);
+				}
+
 				// Always push the task to our "All task" array and adjust our storage
 				sideArray[0].tasks.push(task);
 				adjustStorage(null, sideArray);
@@ -178,18 +223,7 @@ buttons.forEach((btn) => {
 
 // When page is loaded, get storage and displ
 window.addEventListener("load", () => {
-	// console.log(getSideStorage());
-	// if (localStorage.getItem("sideProjects") !== null) {
-	// 	window.side = getSideStorage();
-
-	// 	for (let index = 0; index < side.length; index++) {
-	// 		const element = side[index];
-	// 		sideArray.push(element);
-	// 	}
-	// }
-
 	if (localStorage.getItem("sideProjects") !== null) {
-		console.log(getSideStorage());
 		sideArray = getSideStorage();
 	}
 
