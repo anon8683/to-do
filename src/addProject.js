@@ -10,7 +10,7 @@ let count = 0;
 // Whenever a project is clicked, it ID (index in array) becomes current project
 window.currentProject = 0;
 function addProjectNav(project, projectArray) {
-	const nav = document.querySelector("nav");
+	const nav = document.getElementById("projectNav");
 	const name = project.name;
 	// const projects = projectArray;
 	// console.log(projects);
@@ -20,7 +20,7 @@ function addProjectNav(project, projectArray) {
 	newProject.setAttribute("id", `project_${count}`);
 
 	newProject.innerHTML = `
-	<a href="#" class="projectButtonx" id="link_project_${count}">${name}</a>
+	<a href="#" class="projectButtonx" id="link_project_${count}">• ${name}</a>
 	<button class="deleteButton" id="deleteButton${count}" onclick="deleteProject(this.id)" return false;>Delete</button>
 	`;
 	nav.append(newProject);

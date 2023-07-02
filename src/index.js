@@ -65,8 +65,10 @@ const catergory = Array.from(document.querySelectorAll(".catergory"));
 catergory.forEach((item) => {
 	item.addEventListener("click", () => {
 		const add = document.getElementById("addTask");
+		const desc = document.getElementById("projectDesc");
 		displayCurrentProject(1, item.id);
 		add.style.visibility = "hidden";
+		desc.style.visibility = "hidden";
 
 		switch (item.id) {
 			case "all":

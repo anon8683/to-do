@@ -69,13 +69,22 @@ function displayCurrentProject(projectArray, id) {
 	add.style.visibility = "visible";
 }
 
-function checkIfExistsElswhere(id) {
-	const index = id.slice(-1);
-	const projectIndex = getCurrentProject();
+// function checkIfExistsElswhere(id) {
+// 	const index = id.slice(-1);
+// 	const projectIndex = getCurrentProject();
+// 	const task = projectArray[projectIndex].tasks[index];
 
-	const task = projectArray[projectIndex].tasks[index];
-	console.log(task);
-}
+// 	const exists = sideArray[3].tasks.findIndex(
+// 		(item) => item.title === task.title
+// 	);
+
+// 	if (exists !== -1) {
+// 		sideArray[3].tasks[exists].completed = true;
+// 	}
+// 	console.log(task);
+// 	console.log(exists);
+// }
+
 function completeTask(id) {
 	const index = id.slice(-1);
 	const projectIndex = getCurrentProject();
@@ -104,7 +113,7 @@ function completeTask(id) {
 			return;
 		default:
 	}
-	checkIfExistsElswhere(id);
+	// checkIfExistsElswhere(id);
 	projectArray[projectIndex].tasks[index].completed = true;
 	adjustStorage(projectArray);
 
