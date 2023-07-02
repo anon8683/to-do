@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-undef */
 /* eslint-disable prefer-destructuring */
 import "./style.css";
@@ -27,13 +28,12 @@ import {
 
 window.projects = [];
 window.x = undefined;
-
 window.projectArray = [];
 window.sideArray = [];
 let currentProject;
 let edit = false;
 
-// changes
+// Creates our initial projects that are defaults
 if (sideArray.length < 1) {
 	const all = createProject(["all", "all tasks"]);
 	const today = createProject(["today", "today tasks"]);
@@ -41,21 +41,21 @@ if (sideArray.length < 1) {
 	const important = createProject(["important", "important tasks"]);
 	sideArray.push(all, today, week, important);
 }
-// changes
 
 const buttons = Array.from(document.querySelectorAll("button"));
 const catergory = Array.from(document.querySelectorAll(".catergory"));
 
+// task input validation, requires a valid name and date to submit
 function validateTask() {
 	const nameInput = document.getElementById("taskName");
 	const dateInput = document.getElementById("taskDate");
 	if (dateInput.validity.valid && nameInput.validity.valid) {
 		return true;
 	}
-
 	return false;
 }
 
+// project input vlaidaiton, requires valid name
 function validateProject() {
 	const nameInput = document.getElementById("projectName");
 	if (nameInput.validity.valid) {
@@ -108,10 +108,10 @@ function today(task) {
 	if (time < 86400 && time > 0) {
 		return true;
 	}
-
 	return false;
 }
 
+// checks if the task is within one week from current time
 function week(task) {
 	const taskEpoch = (task.date.getTime() / 1000).toFixed(0);
 	const currentEpoch = (new Date().getTime() / 1000).toFixed(0);
@@ -124,22 +124,28 @@ function week(task) {
 	return false;
 }
 
+// listen to all buttons on the page, switch case to perform a set of actions based on what button is clicked
 buttons.forEach((btn) => {
 	btn.addEventListener("click", () => {
 		switch (btn.id) {
+			// makes our task inputs visible
 			case "addTask":
 				addVisibleClass("#taskInput");
 				break;
+
+			// makes our project inputs visible
 			case "addProjectButton":
-				// show project inputs
 				addVisibleClass("#projectInput");
 				break;
+
+			// logic for submitting our custom project
 			case "submitProject":
 				{
+					// if user inputs does not pass validation, return
 					if (!validateProject()) {
-						// e.preventDefault();
 						return;
 					}
+
 					const project = createProject(getProjectInput());
 					projects.push(project);
 					projectArray.push(project); // this will always contain total projects, add to localstorage
@@ -154,6 +160,8 @@ buttons.forEach((btn) => {
 					removeVisibleClass("#projectInput");
 				}
 				break;
+
+			// hides project inputs
 			case "cancelSubmitProject":
 				removeVisibleClass("#projectInput");
 				if (edit === true) {
@@ -161,15 +169,19 @@ buttons.forEach((btn) => {
 					edit = false;
 				}
 				break;
+
+			// hides task inputs
 			case "cancelSubmitTask":
 				removeVisibleClass("#taskInput");
 				break;
+
+			// logic for submitting a task
 			case "submitTask": {
+				// if task inputs are not valid, return
 				if (!validateTask()) {
 					return;
 				}
 				const task = createTask(getTaskInput()); // gives a task object from our inputs
-
 				const current = projectArray[getCurrentProject()]; //
 				current.tasks.push(task);
 
@@ -192,8 +204,6 @@ buttons.forEach((btn) => {
 				// Always push the task to our "All task" array and adjust our storage
 				sideArray[0].tasks.push(task);
 				adjustStorage(null, sideArray);
-				// changes
-
 				orderTasksByDate(current);
 				removeVisibleClass("#taskInput");
 				displayTasks(current, getCurrentProject());

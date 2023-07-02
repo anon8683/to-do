@@ -69,10 +69,16 @@ function displayCurrentProject(projectArray, id) {
 	add.style.visibility = "visible";
 }
 
+function checkIfExistsElswhere(id) {
+	const index = id.slice(-1);
+	const projectIndex = getCurrentProject();
+
+	const task = projectArray[projectIndex].tasks[index];
+	console.log(task);
+}
 function completeTask(id) {
 	const index = id.slice(-1);
 	const projectIndex = getCurrentProject();
-	console.log(projectIndex);
 	const checkbox = document.getElementById(`${id}`);
 	const cardToChange = document.getElementById(
 		`project_${projectIndex}_task_${index}`
@@ -105,13 +111,6 @@ function completeTask(id) {
 	// remove from local storage
 }
 
-function checkIfExistsElswhere(id) {
-	const index = id.slice(-1);
-	const projectIndex = getCurrentProject();
-
-	const task = projectArray[projectIndex].tasks[index];
-	console.log(task);
-}
 function unCompleteTask(id) {
 	const index = id.slice(-1);
 	const projectIndex = getCurrentProject();
@@ -231,7 +230,6 @@ function showLess(id) {
 
 function deleteTask(id) {
 	const projectIndex = getCurrentProject();
-	console.log(projectIndex);
 	const index = id.slice(-1);
 	const cardToDelete = document.getElementById(
 		`project_${projectIndex}_task_${index}`

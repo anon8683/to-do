@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // eslint-disable-next-line import/no-cycle
 import { displayCurrentProject, displayTasks } from "./displayItems";
 import { setLastProject } from "./localStorage";
@@ -45,10 +46,10 @@ catergory.forEach((item) => {
 				currentProject = "all";
 				break;
 			case "today":
-				currentProject = 1;
+				currentProject = "today";
 				break;
 			case "week":
-				currentProject = 2;
+				currentProject = "week";
 				break;
 			case "important":
 				currentProject = "important";
