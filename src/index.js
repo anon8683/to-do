@@ -26,6 +26,7 @@ import {
 	getSideStorage,
 } from "./localStorage";
 
+const welcomeText = document.getElementById("introText");
 window.projects = [];
 window.x = undefined;
 window.projectArray = [];
@@ -66,6 +67,7 @@ catergory.forEach((item) => {
 	item.addEventListener("click", () => {
 		const add = document.getElementById("addTask");
 		const desc = document.getElementById("projectDesc");
+		welcomeText.style.display = "none";
 		displayCurrentProject(1, item.id);
 		add.style.visibility = "hidden";
 		desc.style.visibility = "hidden";
@@ -135,6 +137,7 @@ buttons.forEach((btn) => {
 			// makes our project inputs visible
 			case "addProjectButton":
 				addVisibleClass("#projectInput");
+				welcomeText.style.display = "none";
 				break;
 
 			// logic for submitting our custom project
@@ -240,6 +243,7 @@ window.addEventListener("load", () => {
 		localStorage.getItem("projects") !== null &&
 		localStorage.getItem("projects") !== "[]"
 	) {
+		welcomeText.style.display = "none";
 		window.proj = getStorage();
 		for (let i = 0; i < proj.length; i += 1) {
 			const element = proj[i];
@@ -258,4 +262,6 @@ window.addEventListener("load", () => {
 		);
 		itemToClick.click();
 	}
+
+	// examples();
 });
